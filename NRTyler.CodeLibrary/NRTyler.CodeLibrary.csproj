@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="Enums\UnitTestResult.cs" />
     <Compile Include="ExtensionMethods\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Assistants\TypeValidator.cs" />
     <Compile Include="Utilities\Generators\CharacterGenerator.cs" />
     <Compile Include="Utilities\Generators\NameGenerator.cs" />
     <Compile Include="Utilities\Generators\NumberBuilder.cs" />
@@ -51,10 +53,8 @@
     <Compile Include="Utilities\StringEnum.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Enums\" />
     <Folder Include="EventArgs\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Utilities\Assistants\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

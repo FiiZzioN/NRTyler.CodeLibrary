@@ -82,9 +82,6 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 			get { return this.minValue; }
 			set
 			{
-				dynamic dynamicValue = value;
-				if (dynamicValue < 0) return;
-
 				this.minValue = value;
 			}
 		}
@@ -97,9 +94,6 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 			get { return this.maxValue; }
 			set
 			{
-				dynamic dynamicValue = value;
-				if (dynamicValue < 0) return;
-
 				this.maxValue = value;
 			}
 		}
@@ -112,7 +106,6 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 			get { return this.arraySize; }
 			set
 			{
-				if (value < 0) return;
 				this.arraySize = value;
 			}
 		}

@@ -12,7 +12,7 @@
 
 using NRTyler.CodeLibrary.Attributes;
 
-namespace NRTyler.CodeLibrary.UnitTests.TestTools
+namespace NRTyler.CodeLibrary.Enums
 {
     /// <summary>
     /// <see cref="UnitTestResult"/> holds values that indicate whether a given test passed, failed, or has yet to be run.

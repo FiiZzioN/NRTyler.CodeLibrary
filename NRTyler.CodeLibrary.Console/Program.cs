@@ -19,12 +19,7 @@ namespace NRTyler.CodeLibrary.Console
 		private static void Main()
 		{
 			//Write(NumericGenerator.Integer(-40));
-			var array = NumericGenerator.IntegerArray(-1);
-
-			foreach (var i in array)
-			{
-				Write(i);
-			}
+			
 		}
 
 		/// <summary>

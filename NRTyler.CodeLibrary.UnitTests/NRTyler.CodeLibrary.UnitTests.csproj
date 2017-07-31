@@ -52,8 +52,7 @@
     <Compile Include="NumericGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringEnumTests.cs" />
-    <Compile Include="TestTools\UnitTestResult.cs" />
-    <Compile Include="TestTools\VerificationTool.cs" />
+    <Compile Include="VerificationTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

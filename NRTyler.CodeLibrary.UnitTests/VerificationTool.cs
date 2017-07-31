@@ -10,9 +10,10 @@
 // License          : GNU General Public License v3.0
 // ***********************************************************************
 
+using NRTyler.CodeLibrary.Enums;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
-namespace NRTyler.CodeLibrary.UnitTests.TestTools
+namespace NRTyler.CodeLibrary.UnitTests
 {
     /// <summary>
     /// The <see cref="VerificationTool{T}"/> class verifies and validates whether a single value, or multiple items generated in an array, are within the set constraints.
