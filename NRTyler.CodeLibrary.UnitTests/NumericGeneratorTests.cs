@@ -11,8 +11,10 @@
 // ***********************************************************************
 
 using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Enums;
+using NRTyler.CodeLibrary.Utilities.Assistants;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
 namespace NRTyler.CodeLibrary.UnitTests
@@ -23,10 +25,10 @@ namespace NRTyler.CodeLibrary.UnitTests
     [TestClass]
     public class NumericGeneratorTests
     {
-        #region Base Tests
+		#region Base Tests
 
-        [TestMethod]
-        public void NumericGenerator_ValueFailed()
+		[TestMethod]
+        public void ValueFailed()
         {
             //Arrange
             var paramBundle = new ParameterBundle<int>(-5, 5);
@@ -42,7 +44,7 @@ namespace NRTyler.CodeLibrary.UnitTests
         }
 
         [TestMethod]
-        public void NumericGenerator_ArrayFailed()
+        public void ArrayFailed()
         {
             //Arrange  
             var paramBundle = new ParameterBundle<int>(-200, 200, 200);
@@ -59,28 +61,80 @@ namespace NRTyler.CodeLibrary.UnitTests
             Assert.AreNotEqual(expected, actual);
         }
 
-        #endregion
+		#endregion
 
-        #region Integers
+		#region Integers
 
-        [TestMethod]
-        public void NumericGenerator_IntegerValue()
-        {
-            //Arrange
-            var paramBundle = new ParameterBundle<int>(-5, 5);
-            var value       = NumericGenerator.GenerateValue(paramBundle);
+	    #region IntergerOverloads
 
-            var expected    = UnitTestResult.Passed;
+	    [TestMethod]
+	    public void IntegerValueOverloadOne()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<int>(0, Int32.MaxValue);
+		    var value       = NumericGenerator.GenerateValue<int>();
 
-            //Act
-            var actual      = VerifyValue(paramBundle, value);
+		    var expected    = UnitTestResult.Passed;
 
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
+		    //Act
+		    var actual      = VerifyValue(paramBundle, value);
 
-        [TestMethod]
-        public void NumericGenerator_IntegerArray()
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    [TestMethod]
+	    public void IntegerValueOverloadTwo()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<int>(Int32.MinValue, Int32.MaxValue);
+		    var value       = NumericGenerator.GenerateValue(paramBundle.MinValue, paramBundle.MaxValue);
+
+		    var expected    = UnitTestResult.Passed;
+
+		    //Act
+		    var actual      = VerifyValue(paramBundle, value);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+		[TestMethod]
+		public void IntegerArrayOverloadOne()
+		{
+			//Arrange
+			var paramBundle = new ParameterBundle<int>(0, Int32.MaxValue, 30);
+			var array       = NumericGenerator.GenerateArray<int>(paramBundle.ArraySize);
+
+			var expected    = UnitTestResult.Passed;
+
+			//Act
+			var actual      = VerifyArray(paramBundle, array);
+
+			//Assert
+			Assert.AreEqual(expected, actual);
+		}
+
+	    [TestMethod]
+	    public void IntegerArrayOverloadTwo()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<int>(Int32.MinValue, Int32.MaxValue, 30);
+		    var array       = NumericGenerator.GenerateArray(paramBundle.MinValue, paramBundle.MaxValue, paramBundle.ArraySize);
+
+		    var expected    = UnitTestResult.Passed;
+
+		    //Act
+		    var actual      = VerifyArray(paramBundle, array);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+		#endregion
+
+		[TestMethod]
+        public void GenerateIntegerArray()
         {
             //Arrange
             var paramBundle = new ParameterBundle<int>(-86, 500, 500);
@@ -95,12 +149,96 @@ namespace NRTyler.CodeLibrary.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        #endregion
+	    [TestMethod]
+	    public void GenerateIntegerValue()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<int>(-5, 5);
+		    var value = NumericGenerator.GenerateValue(paramBundle);
 
-        #region Doubles
+		    var expected = UnitTestResult.Passed;
 
-        [TestMethod]
-        public void NumericGenerator_DoubleValue()
+		    //Act
+		    var actual = VerifyValue(paramBundle, value);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+		#endregion
+
+		#region Doubles
+
+	    #region DoubleOverloads
+
+	    [TestMethod]
+	    public void DoubleValueOverloadOne()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<double>(0, Double.MaxValue);
+		    var value = NumericGenerator.GenerateValue<double>();
+
+		    var expected = UnitTestResult.Passed;
+
+		    //Act
+		    var actual = VerifyValue(paramBundle, value);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    [TestMethod]
+	    public void DoubleValueOverloadTwo()
+	    {
+			//Arrange
+		    var paramBundle = new ParameterBundle<double>(Double.MinValue, Double.MaxValue);
+			var value = NumericGenerator.GenerateValue(paramBundle.MinValue, paramBundle.MaxValue);
+
+		    var expected = UnitTestResult.Passed;
+
+		    //Act
+		    var actual = VerifyValue(paramBundle, value);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    [TestMethod]
+	    public void DoubleArrayOverloadOne()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<double>(0, Double.MaxValue, 30);
+		    var array = NumericGenerator.GenerateArray<double>(paramBundle.ArraySize);
+
+		    var expected = UnitTestResult.Passed;
+
+		    //Act
+		    var actual = VerifyArray(paramBundle, array);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    [TestMethod]
+	    public void DoubleArrayOverloadTwo()
+	    {
+			//Arrange
+		    var paramBundle = new ParameterBundle<double>(Double.MinValue, Double.MaxValue, 30);
+			var array = NumericGenerator.GenerateArray(paramBundle.MinValue, paramBundle.MaxValue, paramBundle.ArraySize);
+
+		    var expected = UnitTestResult.Passed;
+
+		    //Act
+		    var actual = VerifyArray(paramBundle, array);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    #endregion
+
+		[TestMethod]
+        public void GenerateDoubleValue()
         {
             //Arrange
             var paramBundle = new ParameterBundle<double>(90, 90.5687);
@@ -115,7 +253,7 @@ namespace NRTyler.CodeLibrary.UnitTests
         }
 
         [TestMethod]
-        public void NumericGenerator_DoubleArray()
+        public void GenerateDoubleArray()
         {
             //Arrange
             var paramBundle = new ParameterBundle<double>(-20.654, 10.92, 500);
@@ -129,12 +267,80 @@ namespace NRTyler.CodeLibrary.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
-        #endregion
+		#endregion
 
-        #region Bytes
+		#region Bytes
 
-        [TestMethod]
-        public void NumericGenerator_ByteValue()
+		#region ByteOverloads
+
+	    [TestMethod]
+	    public void ByteValueOverloadOne()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<byte>(0, Byte.MaxValue);
+		    var value       = NumericGenerator.GenerateValue<byte>();
+
+		    var expected    = UnitTestResult.Passed;
+
+		    //Act
+		    var actual      = VerifyValue(paramBundle, value);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    [TestMethod]
+	    public void ByteValueOverloadTwo()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<byte>(Byte.MinValue, Byte.MaxValue);
+		    var value       = NumericGenerator.GenerateValue(paramBundle.MinValue, paramBundle.MaxValue);
+
+		    var expected    = UnitTestResult.Passed;
+
+		    //Act
+		    var actual      = VerifyValue(paramBundle, value);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    [TestMethod]
+	    public void ByteArrayOverloadOne()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<byte>(0, Byte.MaxValue, 30);
+		    var array       = NumericGenerator.GenerateArray<byte>(paramBundle.ArraySize);
+
+		    var expected    = UnitTestResult.Passed;
+
+		    //Act
+		    var actual      = VerifyArray(paramBundle, array);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    [TestMethod]
+	    public void ByteArrayOverloadTwo()
+	    {
+		    //Arrange
+		    var paramBundle = new ParameterBundle<byte>(Byte.MinValue, Byte.MaxValue, 30);
+		    var array       = NumericGenerator.GenerateArray(paramBundle.MinValue, paramBundle.MaxValue, paramBundle.ArraySize);
+
+		    var expected    = UnitTestResult.Passed;
+
+		    //Act
+		    var actual      = VerifyArray(paramBundle, array);
+
+		    //Assert
+		    Assert.AreEqual(expected, actual);
+	    }
+
+	    #endregion
+
+		[TestMethod]
+        public void GenerateByteValue()
         {
             //Arrange
             var paramBundle = new ParameterBundle<byte>(34, 73);
@@ -150,7 +356,7 @@ namespace NRTyler.CodeLibrary.UnitTests
         }
 
         [TestMethod]
-        public void NumericGenerator_ByteArray()
+        public void GenerateByteArray()
         {
             //Arrange
             var paramBundle = new ParameterBundle<byte>(14, 185, 500);
@@ -170,7 +376,7 @@ namespace NRTyler.CodeLibrary.UnitTests
 		#region Tandem
 
         [TestMethod]
-        public void NumericGenerator_TandemValue()
+        public void GenerateTandemValue()
         {
             //Arrange
             var paramBundle = new ParameterBundle<int>(-68, 72, 500);
@@ -186,7 +392,7 @@ namespace NRTyler.CodeLibrary.UnitTests
         }
 
         [TestMethod]
-        public void NumericGenerator_TandemArray()
+        public void GenerateTandemArray()
         {
             //Arrange
             var paramBundle = new ParameterBundle<int>(-68, 72, 500);
@@ -205,10 +411,9 @@ namespace NRTyler.CodeLibrary.UnitTests
 
 		#region Exceptions
 
-
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void NumericGenerator_MinGreaterThanMax()
+		public void MinGreaterThanMax()
 		{
 			//Arrange
 			var valueOne    = 10 - 20;
@@ -227,11 +432,11 @@ namespace NRTyler.CodeLibrary.UnitTests
 
 	    [TestMethod]
 	    [ExpectedException(typeof(ArgumentOutOfRangeException))]
-	    public void NumericGenerator_ArraySizeException()
+	    public void ArraySizeException()
 	    {
 		    //Arrange
 		    var paramBundle = new ParameterBundle<int>(-3, 185, -1);
-		    var array       = NumericGenerator.GenerateArray(-3, 185, -1);
+		    var array       = NumericGenerator.GenerateArray(paramBundle);
 
 		    var expected    = UnitTestResult.Passed;
 
@@ -244,10 +449,10 @@ namespace NRTyler.CodeLibrary.UnitTests
 
 	    [TestMethod]
 	    [ExpectedException(typeof(ArgumentException))]
-	    public void NumericGenerator_InvalidType()
+	    public void InvalidType()
 	    {
 		    //Arrange
-		    var paramBundle = new ParameterBundle<uint>(85, 187);
+		    var paramBundle = new ParameterBundle<decimal>(85, 187);
 		    var value = NumericGenerator.GenerateValue(paramBundle);
 
 		    var expected = UnitTestResult.Passed;
@@ -264,6 +469,13 @@ namespace NRTyler.CodeLibrary.UnitTests
 
 		#region VerifyResults
 
+		/// <summary>
+		/// Verifies that the array is within the bounds of its minimum and maximum values.
+		/// </summary>
+		/// <typeparam name="T">The type of the array</typeparam>
+		/// <param name="paramBundle">The parameter bundle.</param>
+		/// <param name="arrayToVerify">The array to verify.</param>
+		/// <returns>UnitTestResult.</returns>
 		private static UnitTestResult VerifyArray<T>(ParameterBundle<T> paramBundle, T[] arrayToVerify)
         {
             var arrayVerification = new VerificationTool<T>(paramBundle, arrayToVerify);
@@ -271,7 +483,14 @@ namespace NRTyler.CodeLibrary.UnitTests
             return arrayVerification.TestResult;
         }
 
-        private static UnitTestResult VerifyValue<T>(ParameterBundle<T> paramBundle, T valueToVerify)
+		/// <summary>
+		/// Verifies that the value is within the bounds of its minimum and maximum values.
+		/// </summary>
+		/// <typeparam name="T">The type of the value</typeparam>
+		/// <param name="paramBundle">The parameter bundle.</param>
+		/// <param name="valueToVerify">The value to verify.</param>
+		/// <returns>UnitTestResult.</returns>
+		private static UnitTestResult VerifyValue<T>(ParameterBundle<T> paramBundle, T valueToVerify)
         {
             var valueVerification = new VerificationTool<T>(paramBundle, valueToVerify);
 

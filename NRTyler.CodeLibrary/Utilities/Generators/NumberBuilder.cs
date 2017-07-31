@@ -61,7 +61,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         {
             var maxAmountOfDigits = 308;
             var diceRoll          = NumericGenerator.Integer(0, 2);
-            var amount            = NumericGenerator.GenerateValue(maxAmountOfDigits);
+            var amount            = NumericGenerator.GenerateValue(0, maxAmountOfDigits);
 
             return CoreBuilder(amount, Convert.ToBoolean(diceRoll));
         }

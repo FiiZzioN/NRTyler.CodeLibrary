@@ -12,6 +12,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using NRTyler.CodeLibrary.ExtensionMethods;
 using NRTyler.CodeLibrary.Utilities.Assistants;
 
@@ -22,6 +23,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
     /// </summary>
     public static class NumericGenerator
     {
+
 		// Instantiating a class-wide randomizer makes sure that if a user calls multiple generation methods
 		// simultaneously, you don't get the same number since it stays on the same thread when it was called.
         private static Random Randomizer = new Random();
@@ -82,7 +84,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 	    /// Ensures that a method has been passed a type that it can work with.
 	    /// </summary>
 	    /// <param name="type">The type to check against.</param>
-	    private static void ValidateType(Type type)
+	    public static void ValidateType(Type type)
 	    {
 			TypeValidator.ApprovedTypes = ApprovedTypes;
 			TypeValidator.ValidateType(type);
@@ -116,18 +118,6 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 	    }
 
 		/// <summary>
-		/// Generates a random, positive numeric value. Valid types include <see cref="byte"/>, <see cref="int"/>, and <see cref="double"/>.
-		/// </summary>
-		/// <typeparam name="T">Must be a <see cref="byte"/>, <see cref="int"/>, or <see cref="double"/>.</typeparam>
-		/// <param name="maxValue">The maximum value to generate.</param>
-		/// <exception cref="ArgumentException"></exception>
-		public static T GenerateValue<T>(T maxValue)
-	    {
-		    dynamic maximum = maxValue;
-		    return GenerateValue(0, maximum);
-	    }
-
-		/// <summary>
 		/// Generates a random numeric value. Valid types include <see cref="byte"/>, <see cref="int"/>, and <see cref="double"/>.
 		/// </summary>
 		/// <typeparam name="T">Must be a <see cref="byte"/>, <see cref="int"/>, or <see cref="double"/>.</typeparam>
@@ -136,15 +126,16 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 		/// <exception cref="ArgumentException"></exception>
 		public static T GenerateValue<T>(T minValue, T maxValue)
 	    {
-		    ValidateType(typeof(T));
 		    VerifyParameters(minValue, maxValue);
 
 		    dynamic maximum = maxValue;
 			dynamic minimum = minValue;
 
-		    if (typeof(T) == typeof(double)) return Double(minimum, maximum);
+		    ValidateType(typeof(T));
 
 		    if (typeof(T) == typeof(byte)) return Byte(minimum, maximum);
+
+			if (typeof(T) == typeof(double)) return Double(minimum, maximum);
 
 			return Integer(minimum, maximum);
 		}
@@ -178,25 +169,12 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 
 		    if (typeof(T) == typeof(byte))
 		    {
-			    dynamic dynamicByte = GenerateArray(0, System.Byte.MaxValue, arraySize);
+			    dynamic dynamicByte = GenerateArray((byte)0, System.Byte.MaxValue, arraySize);
 			    return dynamicByte;
 		    }
 
 		    dynamic dynamicInt = GenerateArray(0, System.Int32.MaxValue, arraySize);
 		    return dynamicInt;
-	    }
-
-	    /// <summary>
-	    /// Generates an array of random, positive numeric values. Valid types include <see cref="byte"/>, <see cref="int"/>, and <see cref="double"/>.
-	    /// </summary>
-	    /// <typeparam name="T">Must be a <see cref="byte"/>, <see cref="int"/>, or <see cref="double"/>.</typeparam>
-	    /// <param name="maxValue">The maximum value to generate..</param>
-	    /// <param name="arraySize">The size of the array.</param>
-	    /// <exception cref="ArgumentException"></exception>
-	    public static T[] GenerateArray<T>(T maxValue, int arraySize)
-	    {
-		    dynamic maximum = maxValue;
-		    return GenerateArray(0, maximum, arraySize);
 	    }
 
 	    /// <summary>
@@ -212,14 +190,11 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 		    ValidateType(typeof(T));
 		    VerifyParameters(minValue, maxValue, arraySize);
 
-		    dynamic minimum = minValue;
-		    dynamic maximum = maxValue;
-
 		    var array = new T[arraySize];
 
 		    for (var i = 0; i < array.Length; i++)
 		    {
-			    array[i] = GenerateValue(minimum, maximum);
+			    array[i] = GenerateValue(minValue, maxValue);
 		    }
 
 		    return array;
