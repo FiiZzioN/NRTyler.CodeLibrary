@@ -18,25 +18,17 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 	/// Class ParameterBundle.
 	/// </summary>
 	/// <typeparam name="T">The <see cref="Type"/> of values the <see cref="ParameterBundle{T}"/> will contain.</typeparam>
-	public class ParameterBundle<T>
+	public struct ParameterBundle<T>
 	{
 		#region Constructors
-
-		/// <summary>
-		/// Prevents a default instance of the <see cref="ParameterBundle{T}"/> class from being created.
-		/// </summary>
-		private ParameterBundle()
-		{
-
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ParameterBundle{T}"/> class.
 		/// </summary>
 		/// <param name="maxValue">The maximum value to generate.</param>
-		public ParameterBundle(T maxValue)
+		public ParameterBundle(T maxValue) : this()
 		{
-			this.MaxValue = maxValue;
+			MaxValue = maxValue;
 		}
 
 		/// <summary>
@@ -55,11 +47,11 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 		/// <param name="minValue">The minimum value to generate.</param>
 		/// <param name="maxValue">The maximum value to generate.</param>
 		/// <param name="arraySize">The amount of item(s) that should be in a generated array.</param>
-		public ParameterBundle(T minValue, T maxValue, int arraySize)
+		public ParameterBundle(T minValue, T maxValue, int arraySize) : this()
 		{
-			this.MinValue = minValue;
-			this.MaxValue = maxValue;
-			this.ArraySize = arraySize;
+			MinValue = minValue;
+			MaxValue = maxValue;
+			ArraySize = arraySize;
 		}
 
 		#endregion

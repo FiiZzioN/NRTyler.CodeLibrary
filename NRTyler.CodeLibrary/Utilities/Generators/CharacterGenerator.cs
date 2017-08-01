@@ -2,24 +2,26 @@
 // Assembly         : NRTyler.CodeLibrary
 //
 // Author           : Nicholas Tyler
-// Created          : 06-24-2017
+// Created          : 07-28-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 06-24-2017
+// Last Modified On : 07-28-2017
 //
 // License          : GNU General Public License v3.0
 // ***********************************************************************
 
 using System;
 
-namespace NRTyler.CodeLibrary.Generators
+namespace NRTyler.CodeLibrary.Utilities.Generators
 {
     /// <summary>
     /// <see cref="CharacterGenerator"/> generates random uppercase or lowercase characters.
     /// </summary>
     public static class CharacterGenerator
     {
-        private static Random Randomizer = new Random();
+	    // Instantiating a class-wide randomizer makes sure that if a user calls multiple generation methods
+	    // simultaneously, you don't get the same number since it stays on the same thread when it was called.
+		private static Random Randomizer = new Random();
 
         #region Upper
 

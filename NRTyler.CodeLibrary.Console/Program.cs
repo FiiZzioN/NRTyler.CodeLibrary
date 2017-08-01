@@ -18,8 +18,11 @@ namespace NRTyler.CodeLibrary.Console
 	{
 		private static void Main()
 		{
-			//Write(NumericGenerator.Integer(-40));
-			
+			var paramBundle = new ParameterBundle<int>(500);
+
+			Write(paramBundle.MinValue);
+			Write(paramBundle.MaxValue);
+			Write(paramBundle.ArraySize);
 		}
 
 		/// <summary>

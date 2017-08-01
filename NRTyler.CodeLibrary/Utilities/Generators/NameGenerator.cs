@@ -13,7 +13,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using NRTyler.CodeLibrary.Generators;
 
 namespace NRTyler.CodeLibrary.Utilities.Generators
 {
