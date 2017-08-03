@@ -76,7 +76,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 	    {
 		    VerifyParameters(minValue, maxValue);
 
-		    return Randomizer.Byte(minValue, maxValue);
+		    return Randomizer.NextByte(minValue, maxValue);
 	    }
 
 	    /// <summary>

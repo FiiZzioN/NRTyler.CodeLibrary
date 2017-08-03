@@ -44,9 +44,9 @@
     <Compile Include="Enums\UnitTestResult.cs" />
     <Compile Include="ExtensionMethods\Extensions.cs" />
     <Compile Include="Interfaces\ICustomFormatProvider.cs" />
-    <Compile Include="Interfaces\INumericValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Assistants\TypeValidator.cs" />
+    <Compile Include="Utilities\Assistants\UnitTestAlert.cs" />
     <Compile Include="Utilities\Generators\CharacterGenerator.cs" />
     <Compile Include="Utilities\Generators\NameGenerator.cs" />
     <Compile Include="Utilities\Generators\NumberBuilder.cs" />

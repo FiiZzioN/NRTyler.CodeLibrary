@@ -13,6 +13,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NRTyler.CodeLibrary.Utilities.Assistants;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
 namespace NRTyler.CodeLibrary.UnitTests.UtilityTests.GeneratorTests
@@ -74,28 +75,22 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests.GeneratorTests
 				paramBundle.MaxValue
 			};
 
-			if (paramBundle.ArraySize != expectedArraySize)
-				Console.WriteLine("ArraySizes don't match!");
-
-			CheckListEquality(expectedValues, actualValues);
+			UnitTestAlert.EqualityAlert(paramBundle.ArraySize, expectedArraySize, $"{nameof(paramBundle.ArraySize)} and {nameof(expectedArraySize)} aren't equal!");
+			UnitTestAlert.CollectionAlert(expectedValues, actualValues, $"{nameof(expectedValues)} and {nameof(actualValues)} aren't equal!");
 
 			//Assert
 			CollectionAssert.AreEqual(expectedValues, actualValues);
 			Assert.AreEqual(expectedArraySize, actualArraySize);
 		}
 
-		private void CheckListEquality<T>(List<T> valueOne, List<T> valueTwo) where T : IComparable<T>
+		private void CheckListEquality<T>(List<T> valueOne, List<T> valueTwo) where T : struct, IComparable<T>
 		{
 			if (valueOne.Count == 0) throw new ArgumentException("Value cannot be an empty collection.", nameof(valueOne));
 			if (valueTwo.Count == 0) throw new ArgumentException("Value cannot be an empty collection.", nameof(valueTwo));
-
-			for (var i = 0; i < valueOne.Count; i++)
+		
+			if (valueOne.Equals(valueTwo))
 			{
-				if (valueOne[i].CompareTo(valueTwo[i]) < 0)
-				{
-					Console.WriteLine("Values don't match!");
-					break;
-				}
+				Console.WriteLine("Values don't match!");
 			}
 		}
 	}

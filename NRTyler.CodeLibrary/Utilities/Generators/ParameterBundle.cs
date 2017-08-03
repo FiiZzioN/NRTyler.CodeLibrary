@@ -15,7 +15,7 @@ using System;
 namespace NRTyler.CodeLibrary.Utilities.Generators
 {
 	/// <summary>
-	/// Class ParameterBundle.
+	/// <see cref="ParameterBundle{T}"/> holds various values that generators will use to the generate their data.
 	/// </summary>
 	/// <typeparam name="T">The <see cref="Type"/> of values the <see cref="ParameterBundle{T}"/> will contain.</typeparam>
 	public struct ParameterBundle<T>
@@ -67,7 +67,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 		#region Properties
 
 		/// <summary>
-		/// The minimum value to generate.
+		/// The minimum value for a generator to generate.
 		/// </summary>
 		public T MinValue
 		{
@@ -79,7 +79,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 		}
 
 		/// <summary>
-		/// The maximum value to generate.
+		/// The maximum value for a generator to generate.
 		/// </summary>
 		public T MaxValue
 		{

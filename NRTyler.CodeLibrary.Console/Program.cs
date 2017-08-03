@@ -18,17 +18,13 @@ namespace NRTyler.CodeLibrary.Console
 	{
 		private static void Main()
 		{
-			var paramBundle = new ParameterBundle<int>(500);
-
-			Write(paramBundle.MinValue);
-			Write(paramBundle.MaxValue);
-			Write(paramBundle.ArraySize);
+			Write(NumberBuilder.PositiveString(10));
 		}
 
 		/// <summary>
 		/// Writes the specified value to the console.
 		/// </summary>
-		/// <param name="value">The value to write on the console.</param>
+		/// <param name="value">The value to write to the console.</param>
 		private static void Write(object value)
 		{
 			System.Console.WriteLine(value);

@@ -10,10 +10,11 @@
 // License          : GNU General Public License v3.0
 // ***********************************************************************
 
+using System;
 using NRTyler.CodeLibrary.Enums;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
-namespace NRTyler.CodeLibrary.UnitTests
+namespace NRTyler.CodeLibrary.UnitTests.UtilityTests.GeneratorTests
 {
     public class NumberBuilderTests
     {
@@ -37,15 +38,15 @@ namespace NRTyler.CodeLibrary.UnitTests
 
         #region VerifyResults
 
-        private static UnitTestResult VerifyArray<T>(ParameterBundle<T> paramBundle, T[] arrayToVerify)
-        {
+        private static UnitTestResult VerifyArray<T>(ParameterBundle<T> paramBundle, T[] arrayToVerify) where T : struct, IComparable<T>
+		{
             var arrayVerification = new VerificationTool<T>(paramBundle, arrayToVerify);
 
             return arrayVerification.TestResult;
         }
 
-        private static UnitTestResult VerifyValue<T>(ParameterBundle<T> paramBundle, T valueToVerify)
-        {
+        private static UnitTestResult VerifyValue<T>(ParameterBundle<T> paramBundle, T valueToVerify) where T : struct, IComparable<T>
+		{
             var valueVerification = new VerificationTool<T>(paramBundle, valueToVerify);
 
             return valueVerification.TestResult;

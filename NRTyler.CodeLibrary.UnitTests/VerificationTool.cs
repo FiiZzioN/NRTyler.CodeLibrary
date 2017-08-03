@@ -10,6 +10,7 @@
 // License          : GNU General Public License v3.0
 // ***********************************************************************
 
+using System;
 using NRTyler.CodeLibrary.Enums;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
@@ -19,7 +20,7 @@ namespace NRTyler.CodeLibrary.UnitTests
     /// The <see cref="VerificationTool{T}"/> class verifies and validates whether a single value, or multiple items generated in an array, are within the set constraints.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class VerificationTool<T>
+    public class VerificationTool<T> where T : struct, IComparable<T>
     {
         #region Constructors
 
@@ -130,10 +131,8 @@ namespace NRTyler.CodeLibrary.UnitTests
 
             foreach (var item in this.ArrayToVerify)
             {
-                // Converting to a dynamic item so operators can be used for comparison.
-                dynamic dynamicItem = item;
-
-                if (dynamicItem < this.MinValue || dynamicItem > this.MaxValue) return this.TestResult = UnitTestResult.Failed;
+				if (item.CompareTo(MinValue) < 0 || item.CompareTo(MaxValue) > 0)
+					return this.TestResult = UnitTestResult.Failed;
             }
 
             return this.TestResult = UnitTestResult.Passed;
@@ -147,10 +146,8 @@ namespace NRTyler.CodeLibrary.UnitTests
         {
             ResetTestResult();
 
-            // Converting to a dynamic item so operators can be used for comparison.
-            dynamic dynamicItem = this.ValueToVerify;
-
-            if (dynamicItem < this.MinValue || dynamicItem > this.MaxValue) return this.TestResult = UnitTestResult.Failed;
+            if (ValueToVerify.CompareTo(MinValue) < 0 || ValueToVerify.CompareTo(MaxValue) > 0)
+				return this.TestResult = UnitTestResult.Failed;
 
             return this.TestResult = UnitTestResult.Passed;
         }

@@ -2,10 +2,10 @@
 // Assembly         : NRTyler.CodeLibrary
 //
 // Author           : Nicholas Tyler
-// Created          : 06-24-2017
+// Created          : 07-28-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 06-29-2017
+// Last Modified On : 08-01-2017
 //
 // License          : GNU General Public License v3.0
 // ***********************************************************************
@@ -49,6 +49,8 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         /// <returns>System.String.</returns>
         public static string RandomlySignedString(int amount)
         {
+			// When generating a value, the maximum value it 
+			// will return is the 'maxValue' parameter minus one.
             var diceRoll = NumericGenerator.Integer(0, 2);
             return CoreBuilder(amount, Convert.ToBoolean(diceRoll));
         }
@@ -109,26 +111,49 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
             return Double.Parse(RandomString());
         }
 
-        #endregion
+		#endregion
 
-        #region Tandem Returns
+		#region Tandem Returns
 
-        public static Tuple<string, double> PositiveTandem(int amount)
+		/// <summary>
+		/// Builds a positive value with the amount of digits specified. 
+		/// Returns a <see cref="Tuple{T1, T2}"/> containing the value as both a <see cref="string"/> and a <see cref="double"/>.
+		/// </summary>
+		/// <param name="amount">The amount of numbers to generate.</param>
+		/// <returns>Tuple&lt;System.String, System.Double&gt;.</returns>
+		public static Tuple<string, double> PositiveTandem(int amount)
         {
             return ArrangeValues(PositiveString(amount));
         }
 
-        public static Tuple<string, double> NegativeTandem(int amount)
+	    /// <summary>
+	    /// Builds a negative value with the amount of digits specified. 
+	    /// Returns a <see cref="Tuple{T1, T2}"/> containing the value as both a <see cref="string"/> and a <see cref="double"/>.
+	    /// </summary>
+	    /// <param name="amount">The amount of numbers to generate.</param>
+		/// <returns>Tuple&lt;System.String, System.Double&gt;.</returns>
+		public static Tuple<string, double> NegativeTandem(int amount)
         {
             return ArrangeValues(NegativeString(amount));
         }
 
-        public static Tuple<string, double> RandomlySignedTandem(int amount)
+		/// <summary>
+		/// Builds a randomly signed value with the amount of digits specified. 
+		/// Returns a <see cref="Tuple{T1, T2}"/> containing the value as both a <see cref="string"/> and a <see cref="double"/>.
+		/// </summary>
+		/// <param name="amount">The amount of numbers to generate.</param>
+		/// <returns>Tuple&lt;System.String, System.Double&gt;.</returns>
+		public static Tuple<string, double> RandomlySignedTandem(int amount)
         {
             return ArrangeValues(RandomlySignedString(amount));
         }
 
-        public static Tuple<string, double> RandomTandem()
+		/// <summary>
+		/// Builds a randomly signed value with a random amount of digits.
+		/// Returns a <see cref="Tuple{T1, T2}"/> containing the value as both a <see cref="string"/> and a <see cref="double"/>.
+		/// </summary>
+		/// <returns>Tuple&lt;System.String, System.Double&gt;.</returns>
+		public static Tuple<string, double> RandomTandem()
         {
             return ArrangeValues(RandomString());
         }
@@ -162,7 +187,8 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         }
 
         /// <summary>
-        /// Takes a randomly built <see cref="string"/> and places it into a <see cref="Tuple{T1,T2}"/> as both a <see cref="string"/> and an <see cref="int"/>.
+        /// Takes a randomly built <see cref="string"/> and returns a <see cref="Tuple{T1,T2}"/> containing
+        /// the value as a <see cref="string"/> and an <see cref="int"/>.
         /// </summary>
         /// <param name="coreValue">The string that you would like to return as multiple types.</param>
         /// <returns>Tuple&lt;System.String, System.Double&gt;.</returns>

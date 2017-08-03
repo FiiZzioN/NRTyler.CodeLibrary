@@ -44,7 +44,7 @@ namespace NRTyler.CodeLibrary.ExtensionMethods
         /// <param name="MaxValue">The maximum value.</param>
         /// <returns>System.Byte.</returns>
         /// <remarks>Extension Method.</remarks>
-        public static byte Byte(this Random Randomizer, byte MinValue, byte MaxValue)
+        public static byte NextByte(this Random Randomizer, byte MinValue, byte MaxValue)
         {
             return Convert.ToByte(Randomizer.Next(MinValue, MaxValue));
         }
