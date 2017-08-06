@@ -175,12 +175,11 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
             // Add the amount of digits specified.
             for (var i = 0; i < amount; i++)
             {
-                var randomInteger = NumericGenerator.Integer(0, 10);
-                stringBuilder.Append(randomInteger);
+                stringBuilder.Append(NumericGenerator.Integer(0, 10));
+	            RemoveLeadingZero(stringBuilder);
             }
 
             // Inserts a hyphen at the beginning of the string if the user wants a negative number.
-            // If negativeValue is false, then it just falls through.
             if (negativeValue) stringBuilder.Insert(0, "-");
 
             return stringBuilder.ToString();
@@ -196,6 +195,33 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         {
             return new Tuple<string, double>(coreValue, Double.Parse(coreValue));
         }
+
+		/// <summary>
+		/// Removes the leading zero from a string of numbers.
+		/// </summary>
+		/// <param name="stringBuilder">The <see cref="StringBuilder"/> object that's being assembled.</param>
+		private static void RemoveLeadingZero(StringBuilder stringBuilder)
+	    {
+		    if (stringBuilder == null) throw new ArgumentNullException($"{nameof(stringBuilder)} cannot be null!");
+
+		    if (!stringBuilder.ToString().StartsWith("0")) return;
+
+		    var builtString   = stringBuilder.ToString();
+		    var randomInteger = $"{NumericGenerator.GenerateValue(1, 10)}";
+		    try
+		    {
+				// Removes the zero in the first index and replaces it with the randomInteger.
+			    stringBuilder.Replace(builtString, randomInteger, 0, 1);
+		    }
+		    catch (ArgumentOutOfRangeException ex)
+		    {
+			    Console.WriteLine(ex);
+		    }
+		    catch (ArgumentException ex)
+		    {
+			    Console.WriteLine(ex);
+		    }
+	    }
 
         #endregion
     }

@@ -18,7 +18,10 @@ namespace NRTyler.CodeLibrary.Console
 	{
 		private static void Main()
 		{
-			Write(NumberBuilder.PositiveString(10));
+			for (var i = 0; i < 250; i++)
+			{
+				Write(NumberBuilder.NegativeDouble(10));
+			}
 		}
 
 		/// <summary>

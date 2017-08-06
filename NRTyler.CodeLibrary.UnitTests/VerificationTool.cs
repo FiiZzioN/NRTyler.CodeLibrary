@@ -82,11 +82,11 @@ namespace NRTyler.CodeLibrary.UnitTests
             VerifyArrayValues();
         }
 
-        public VerificationTool(T multipleValues) : this()
-        {
-            this.ValueToVerify = multipleValues;
-            //VerifyNumberBuilder();
-        }
+        //public VerificationTool(T multipleValues) : this()
+        //{
+        //    this.ValueToVerify = multipleValues;
+        //    //VerifyNumberBuilder();
+        //}
 
         #endregion
 
