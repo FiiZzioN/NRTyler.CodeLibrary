@@ -44,35 +44,35 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 		/// <param name="maxValue">The maximum value.</param>
 		/// <returns>System.Int32.</returns>
 		/// <exception cref="ArgumentOutOfRangeException"></exception>
-		public static int Integer(int minValue, int maxValue)
+		private static int Integer(int minValue, int maxValue)
 	    {
 		    VerifyParameters(minValue, maxValue);
 
 		    return Randomizer.Next(minValue, maxValue);
 	    }
 
-	    /// <summary>
-	    /// Returns a random double that's within the specified range.
-	    /// </summary>
-	    /// <param name="minValue">The minimum value.</param>
-	    /// <param name="maxValue">The maximum value.</param>
-	    /// <returns>System.Double.</returns>
-	    /// <exception cref="ArgumentOutOfRangeException"></exception>
-	    public static double Double(double minValue, double maxValue)
+		/// <summary>
+		/// Returns a random double that's within the specified range.
+		/// </summary>
+		/// <param name="minValue">The minimum value.</param>
+		/// <param name="maxValue">The maximum value.</param>
+		/// <returns>System.Double.</returns>
+		/// <exception cref="ArgumentOutOfRangeException"></exception>
+		private static double Double(double minValue, double maxValue)
 	    {
 		    VerifyParameters(minValue, maxValue);
 
 		    return Randomizer.NextDouble(minValue, maxValue);
 	    }
 
-	    /// <summary>
-	    /// Returns a random byte that's within the specified range.
-	    /// </summary>
-	    /// <param name="minValue">The minimum value.</param>
-	    /// <param name="maxValue">The maximum value.</param>
-	    /// <returns>System.Byte.</returns>
-	    /// <exception cref="ArgumentOutOfRangeException"></exception>
-	    public static byte Byte(byte minValue, byte maxValue)
+		/// <summary>
+		/// Returns a random byte that's within the specified range.
+		/// </summary>
+		/// <param name="minValue">The minimum value.</param>
+		/// <param name="maxValue">The maximum value.</param>
+		/// <returns>System.Byte.</returns>
+		/// <exception cref="ArgumentOutOfRangeException"></exception>
+		private static byte Byte(byte minValue, byte maxValue)
 	    {
 		    VerifyParameters(minValue, maxValue);
 

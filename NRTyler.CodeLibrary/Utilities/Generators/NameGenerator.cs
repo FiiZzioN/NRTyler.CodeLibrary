@@ -81,7 +81,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         {
             PopulateCollections();
 
-            var index = NumericGenerator.Integer(0, list.Count);
+            var index = NumericGenerator.GenerateValue(0, list.Count);
 
             return $"{list[index]}";
         }

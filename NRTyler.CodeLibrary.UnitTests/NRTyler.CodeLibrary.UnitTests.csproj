@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UtilityTests\DiceTests.cs" />
     <Compile Include="UtilityTests\GeneratorTests\CharacterGeneratorTests.cs" />
     <Compile Include="UtilityTests\GeneratorTests\NumberBuilderTests.cs" />
     <Compile Include="UtilityTests\GeneratorTests\NumericGeneratorTests.cs" />

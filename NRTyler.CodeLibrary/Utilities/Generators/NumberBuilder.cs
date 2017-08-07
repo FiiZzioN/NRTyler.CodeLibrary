@@ -5,7 +5,7 @@
 // Created          : 07-28-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 08-01-2017
+// Last Modified On : 08-07-2017
 //
 // License          : GNU General Public License v3.0
 // ***********************************************************************
@@ -20,14 +20,20 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
     /// </summary>
     public static class NumberBuilder
     {
-        #region String Returns
+	    #region Generics
 
-        /// <summary>
-        /// Builds a positive value with the amount of digits specified. Returns the value as a string.
-        /// </summary>
-        /// <param name="amount">The amount of numbers to generate.</param>
-        /// <returns>System.String.</returns>
-        public static string PositiveString(int amount)
+	    
+
+	    #endregion
+
+		#region String Returns
+
+		/// <summary>
+		/// Builds a positive value with the amount of digits specified. Returns the value as a string.
+		/// </summary>
+		/// <param name="amount">The amount of numbers to generate.</param>
+		/// <returns>System.String.</returns>
+		public static string PositiveString(int amount)
         {
             return CoreBuilder(amount, false);
         }
@@ -51,7 +57,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         {
 			// When generating a value, the maximum value it 
 			// will return is the 'maxValue' parameter minus one.
-            var diceRoll = NumericGenerator.Integer(0, 2);
+            var diceRoll = NumericGenerator.GenerateValue(0, 2);
             return CoreBuilder(amount, Convert.ToBoolean(diceRoll));
         }
 
@@ -62,10 +68,9 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         public static string RandomString()
         {
             var maxAmountOfDigits = 308;
-            var diceRoll          = NumericGenerator.Integer(0, 2);
             var amount            = NumericGenerator.GenerateValue(0, maxAmountOfDigits);
 
-            return CoreBuilder(amount, Convert.ToBoolean(diceRoll));
+            return CoreBuilder(amount, Convert.ToBoolean(Dice.Roll()));
         }
 
         #endregion
@@ -175,7 +180,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
             // Add the amount of digits specified.
             for (var i = 0; i < amount; i++)
             {
-                stringBuilder.Append(NumericGenerator.Integer(0, 10));
+                stringBuilder.Append(NumericGenerator.GenerateValue(0, 10));
 	            RemoveLeadingZero(stringBuilder);
             }
 
@@ -187,7 +192,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 
         /// <summary>
         /// Takes a randomly built <see cref="string"/> and returns a <see cref="Tuple{T1,T2}"/> containing
-        /// the value as a <see cref="string"/> and an <see cref="int"/>.
+        /// the value as a <see cref="string"/> and a <see cref="double"/>.
         /// </summary>
         /// <param name="coreValue">The string that you would like to return as multiple types.</param>
         /// <returns>Tuple&lt;System.String, System.Double&gt;.</returns>
