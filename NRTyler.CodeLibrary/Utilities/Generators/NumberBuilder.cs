@@ -55,10 +55,7 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
         /// <returns>System.String.</returns>
         public static string RandomlySignedString(int amount)
         {
-			// When generating a value, the maximum value it 
-			// will return is the 'maxValue' parameter minus one.
-            var diceRoll = NumericGenerator.GenerateValue(0, 2);
-            return CoreBuilder(amount, Convert.ToBoolean(diceRoll));
+            return CoreBuilder(amount, Convert.ToBoolean(Dice.Roll()));
         }
 
         /// <summary>

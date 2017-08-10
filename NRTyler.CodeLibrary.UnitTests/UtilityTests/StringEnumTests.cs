@@ -15,7 +15,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Attributes;
 using NRTyler.CodeLibrary.Utilities;
 
-namespace NRTyler.CodeLibrary.UnitTests
+namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
 {
 
 	#region Class StringEnumTests

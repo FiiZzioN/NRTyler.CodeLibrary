@@ -13,7 +13,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NRTyler.CodeLibrary.Utilities.Assistants
+namespace NRTyler.CodeLibrary.Utilities
 {
 	/// <summary>
 	/// When passing or returning a value, this checks to see if it's an 'approved type'. If it's not an 
@@ -24,21 +24,21 @@ namespace NRTyler.CodeLibrary.Utilities.Assistants
 		/// <summary>
 		/// Gets or sets the list that holds the approved type(s).
 		/// </summary>
-		public static List<Type> ApprovedTypes { get; set; }
+		public static List<Type> ApprovedTypes { get; set; } = new List<Type>();
 
 		/// <summary>
 		/// Gets a value indicating whether the type passed was on the 'ApprovedTypes' list.
 		/// </summary>
 		public static bool CorrectType { get; private set; }
 
-
 		/// <summary>
 		/// Compare the type that's passed to the list of 'ApprovedTypes'. If the passed type is not on the
 		/// list, an <see cref="ArgumentException"/> will be thrown, otherwise it will fall straight through.
 		/// </summary>
 		/// <param name="type">The type to compare.</param>
+		/// <param name="message">The message that you want the <see cref="ArgumentException"/> to include.</param>
 		/// <exception cref="ArgumentException"></exception>
-		public static void ValidateType(Type type)
+		public static void ValidateType(Type type, string message)
 		{
 			CorrectType = false;
 
@@ -48,7 +48,18 @@ namespace NRTyler.CodeLibrary.Utilities.Assistants
 			}
 
 			if (!CorrectType)
-				throw new ArgumentException($"The type, '{type}' , is not valid for this operation. Try a different type.");
+				throw new ArgumentException(message);
+		}
+
+		/// <summary>
+		/// Compare the type that's passed to the list of 'ApprovedTypes'. If the passed type is not on the
+		/// list, an <see cref="ArgumentException"/> will be thrown, otherwise it will fall straight through.
+		/// </summary>
+		/// <param name="type">The type to compare.</param>
+		/// <exception cref="ArgumentException"></exception>
+		public static void ValidateType(Type type)
+		{
+			ValidateType(type, $"The type, '{type}' , is not valid for this operation. Try a different type.");
 		}
 	}
 }

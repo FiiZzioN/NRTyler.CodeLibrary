@@ -14,7 +14,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using NRTyler.CodeLibrary.ExtensionMethods;
-using NRTyler.CodeLibrary.Utilities.Assistants;
 
 namespace NRTyler.CodeLibrary.Utilities.Generators
 {
