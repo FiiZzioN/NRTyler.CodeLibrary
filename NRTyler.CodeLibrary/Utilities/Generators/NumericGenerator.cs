@@ -84,8 +84,9 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 	    /// <param name="type">The type to check against.</param>
 	    public static void ValidateType(Type type)
 	    {
-			TypeValidator.ApprovedTypes = ApprovedTypes;
-			TypeValidator.ValidateType(type);
+		    var errorMessage = $"The type, '{type}' , is not valid for this operation. Try a different type.";
+
+			TypeValidator.ValidateType(ApprovedTypes, type, errorMessage);
 	    }
 
 		#endregion

@@ -11,6 +11,7 @@
 // ***********************************************************************
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace NRTyler.CodeLibrary.Utilities
@@ -24,7 +25,7 @@ namespace NRTyler.CodeLibrary.Utilities
 		/// <summary>
 		/// Gets or sets the list that holds the approved type(s).
 		/// </summary>
-		public static List<Type> ApprovedTypes { get; set; } = new List<Type>();
+		public static IList ApprovedTypes { get; private set; }
 
 		/// <summary>
 		/// Gets a value indicating whether the type passed was on the 'ApprovedTypes' list.
@@ -35,31 +36,31 @@ namespace NRTyler.CodeLibrary.Utilities
 		/// Compare the type that's passed to the list of 'ApprovedTypes'. If the passed type is not on the
 		/// list, an <see cref="ArgumentException"/> will be thrown, otherwise it will fall straight through.
 		/// </summary>
+		/// <param name="approvedTypes">An <see cref="IList"/> containing the approved types.</param>
 		/// <param name="type">The type to compare.</param>
-		/// <param name="message">The message that you want the <see cref="ArgumentException"/> to include.</param>
+		/// <param name="exceptionMessage">The message that you want the <see cref="ArgumentException"/> to include.</param>
 		/// <exception cref="ArgumentException"></exception>
-		public static void ValidateType(Type type, string message)
+		public static void ValidateType(IList approvedTypes, Type type, string exceptionMessage)
 		{
-			CorrectType = false;
+			CorrectType   = false;		
+			ApprovedTypes = approvedTypes;
 
-			foreach (var i in ApprovedTypes)
-			{
-				if (type == i) CorrectType = true;
-			}
+			if (ApprovedTypes.Contains(type)) CorrectType = true;
 
 			if (!CorrectType)
-				throw new ArgumentException(message);
+				throw new ArgumentException(exceptionMessage);
 		}
 
 		/// <summary>
 		/// Compare the type that's passed to the list of 'ApprovedTypes'. If the passed type is not on the
 		/// list, an <see cref="ArgumentException"/> will be thrown, otherwise it will fall straight through.
 		/// </summary>
+		/// <param name="approvedTypes">An <see cref="IList"/> containing the approved types.</param>
 		/// <param name="type">The type to compare.</param>
 		/// <exception cref="ArgumentException"></exception>
-		public static void ValidateType(Type type)
+		public static void ValidateType(IList approvedTypes, Type type)
 		{
-			ValidateType(type, $"The type, '{type}' , is not valid for this operation. Try a different type.");
+			ValidateType(approvedTypes, type, $"The type, '{type}' , is not valid for this operation. Try a different type.");
 		}
 	}
 }

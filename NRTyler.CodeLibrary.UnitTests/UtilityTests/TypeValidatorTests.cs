@@ -11,6 +11,7 @@
 // ***********************************************************************
 
 using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Attributes;
 using NRTyler.CodeLibrary.Utilities;
@@ -24,12 +25,11 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
 		public void ValidateType()
 		{
 			//Arrange
-			TypeValidator.ApprovedTypes.Add(typeof(byte));
-			TypeValidator.ApprovedTypes.Add(typeof(int ));
+			var list = new List<Type> { typeof(int), typeof(byte) };
 
 			byte testValue = 255;
 
-			TypeValidator.ValidateType(testValue.GetType());
+			TypeValidator.ValidateType(list, testValue.GetType());
 
 			var expected = true;
 
@@ -45,12 +45,11 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
 		public void ValidateTypeCustomMessage()
 		{
 			//Arrange
-			TypeValidator.ApprovedTypes.Add(typeof(double));
-			TypeValidator.ApprovedTypes.Add(typeof(int   ));
+			var list = new List<Type> { typeof(int), typeof(double)};
 
-			byte testValue = 122;
+			byte testValue = 255;
 
-			TypeValidator.ValidateType(testValue.GetType(), "This is a test message");
+			TypeValidator.ValidateType(list, testValue.GetType(), "This is a test message");
 
 			//Act
 
