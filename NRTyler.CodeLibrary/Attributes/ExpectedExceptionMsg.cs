@@ -16,8 +16,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace NRTyler.CodeLibrary.Attributes
 {
 	/// <summary>
-	/// When passing or returning a value, this checks to see if it's an 'approved type'. If it's not an 
-	/// 'approved type', an <see cref="ArgumentException"/> is thrown, otherwise it fall straight through.
+	/// Attribute that specifies to expect an exception of the specified 
+	/// type along with the specified error message.
 	/// </summary>
 	public class ExpectedExceptionMsg : ExpectedExceptionBaseAttribute
 	{
