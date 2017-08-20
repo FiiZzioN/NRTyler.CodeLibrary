@@ -51,6 +51,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionMethodTests\StringExtensionTests.cs" />
     <Compile Include="UtilityTests\DiceTests.cs" />
     <Compile Include="UtilityTests\GeneratorTests\CharacterGeneratorTests.cs" />
     <Compile Include="UtilityTests\GeneratorTests\NumberBuilderTests.cs" />

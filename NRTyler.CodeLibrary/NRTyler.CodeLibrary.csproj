@@ -55,7 +55,7 @@
     <Compile Include="ExtensionMethods\Extensions.cs" />
     <Compile Include="Interfaces\ICustomFormatProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\Assistants\StringAssistant.cs" />
+    <Compile Include="ExtensionMethods\StringExtension.cs" />
     <Compile Include="Utilities\ExtendedMathConstants.cs" />
     <Compile Include="Utilities\TypeValidator.cs" />
     <Compile Include="Utilities\Assistants\UnitTestAlert.cs" />
