@@ -13,7 +13,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using NRTyler.CodeLibrary.ExtensionMethods;
+using NRTyler.CodeLibrary.Extensions;
 
 namespace NRTyler.CodeLibrary.Utilities.Generators
 {

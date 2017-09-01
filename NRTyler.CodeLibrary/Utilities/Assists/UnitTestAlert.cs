@@ -13,7 +13,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NRTyler.CodeLibrary.Utilities.Assistants
+namespace NRTyler.CodeLibrary.Utilities.Assists
 {
 	/// <summary>
 	/// Used to alert the user via the console/output screen should something not match. 

@@ -13,7 +13,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NRTyler.CodeLibrary.Utilities.Assistants;
+using NRTyler.CodeLibrary.Utilities.Assists;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
 namespace NRTyler.CodeLibrary.UnitTests.UtilityTests.GeneratorTests
@@ -81,17 +81,6 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests.GeneratorTests
 			//Assert
 			CollectionAssert.AreEqual(expectedValues, actualValues);
 			Assert.AreEqual(expectedArraySize, actualArraySize);
-		}
-
-		private void CheckListEquality<T>(List<T> valueOne, List<T> valueTwo) where T : struct, IComparable<T>
-		{
-			if (valueOne.Count == 0) throw new ArgumentException("Value cannot be an empty collection.", nameof(valueOne));
-			if (valueTwo.Count == 0) throw new ArgumentException("Value cannot be an empty collection.", nameof(valueTwo));
-		
-			if (valueOne.Equals(valueTwo))
-			{
-				Console.WriteLine("Values don't match!");
-			}
 		}
 	}
 }

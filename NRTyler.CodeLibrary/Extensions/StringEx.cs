@@ -13,9 +13,12 @@
 using System;
 using System.Globalization;
 
-namespace NRTyler.CodeLibrary.ExtensionMethods
+namespace NRTyler.CodeLibrary.Extensions
 {
-	public static class StringExtension
+	/// <summary>
+	/// Holds extension methods for the <see cref="String"/> class.
+	/// </summary>
+	public static class StringEx
 	{
 		/// <summary>
 		/// Returns the input value in the current cultures title case.

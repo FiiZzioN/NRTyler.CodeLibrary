@@ -10,7 +10,8 @@
 // License          : GNU General Public License v3.0
 // ***********************************************************************
 
-using NRTyler.CodeLibrary.Utilities.Generators;
+using System.Collections.Generic;
+using NRTyler.CodeLibrary.Extensions;
 
 namespace NRTyler.CodeLibrary.Console
 {
@@ -18,7 +19,16 @@ namespace NRTyler.CodeLibrary.Console
 	{
 		private static void Main()
 		{
-			Write(NumberBuilder.RandomString());
+			var dictionary = new Dictionary<string, int>();
+
+			dictionary.Add("One",   1);
+			dictionary.Add("Two",   2);
+			dictionary.Add("Three", 3);
+			dictionary.Add("Four",  4);
+			dictionary.Add("Five",  5);
+
+			ConsoleEx.ClosingMessage();
+
 		}
 
 		/// <summary>

@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Enums;
-using NRTyler.CodeLibrary.Utilities.Assistants;
+using NRTyler.CodeLibrary.Utilities.Assists;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
 namespace NRTyler.CodeLibrary.UnitTests

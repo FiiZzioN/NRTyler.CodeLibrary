@@ -13,9 +13,9 @@
 using System;
 using System.Globalization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NRTyler.CodeLibrary.ExtensionMethods;
+using NRTyler.CodeLibrary.Extensions;
 
-namespace NRTyler.CodeLibrary.UnitTests.ExtensionMethodTests
+namespace NRTyler.CodeLibrary.UnitTests.ExtensionTests
 {
 	[TestClass]
 	public class StringExtensionTests
@@ -85,7 +85,7 @@ namespace NRTyler.CodeLibrary.UnitTests.ExtensionMethodTests
 	{
 		public TitleTest(string title) : this()
 		{
-			Title = title;
+			this.Title = title;
 		}
 
 		private string title;
