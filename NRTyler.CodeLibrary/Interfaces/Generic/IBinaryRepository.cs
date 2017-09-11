@@ -15,45 +15,23 @@ using System.IO;
 namespace NRTyler.CodeLibrary.Interfaces.Generic
 {
 	/// <summary>
-	/// Indicates that a class can serialize and deserialize abjects.
+	/// Indicates that a class can serialize and deserialize abjects in a binary format.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	public interface IRepository<T>
+	/// <typeparam name="T">The type of <see cref="object"/> being serialized.</typeparam>
+	public interface IBinaryRepository<T>
 	{
-		#region XML
-
-		/// <summary>
-		/// Serializes the object to an XML file using the specified stream.
-		/// </summary>
-		/// <param name="stream">The stream to the specified location and mode.</param>
-		/// <param name="obj">The object to be serialized.</param>
-		void SerializeToXML(Stream stream, T obj);
-
-		/// <summary>
-		/// Deserializes an XML file using the specified stream.
-		/// </summary>
-		/// <param name="stream">The stream to the specified file and mode.</param>
-		/// <returns>The deserialized object.</returns>
-		T DeserializeFromXML(Stream stream);
-
-		#endregion
-
-		#region Binary
-
 		/// <summary>
 		/// Serializes the object to a file in binary format using the specified stream.
 		/// </summary>
 		/// <param name="stream">The stream to the specified location and mode.</param>
 		/// <param name="obj">The object to be serialized.</param>
-		void SerializeToBinary(Stream stream, T obj);
+		void Serialize(Stream stream, T obj);
 
 		/// <summary>
 		/// Deserializes a file saved in binary format using the specified stream.
 		/// </summary>
 		/// <param name="stream">The stream to the specified file and mode.</param>
 		/// <returns>The deserialized object.</returns>
-		T DeserializeFromBinary(Stream stream);
-
-		#endregion
+		T Deserialize(Stream stream);
 	}
 }

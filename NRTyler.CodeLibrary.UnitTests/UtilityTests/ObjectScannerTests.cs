@@ -166,6 +166,55 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
 
         #endregion
 
+        #region Fields and Properties
+
+        [TestMethod]
+        public void FieldsOrPropertiesTrue()
+        {
+            // Arrange
+            var testObject = new TestObject();
+
+            var expected = true;
+
+            // Act
+            var actual = testObject.ContainsFieldOrPropertyType(typeof(int));
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FieldsOrPropertiesFalse()
+        {
+            // Arrange
+            var testObject = new TestObject();
+
+            var expected = false;
+
+            // Act
+            var actual = testObject.ContainsFieldType(typeof(double));
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void NoFieldsorProperties()
+        {
+            // Arrange
+            var testObject = new EmptyObject();
+
+            var expected = false;
+
+            // Act
+            var actual = testObject.ContainsFieldType(typeof(long));
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        #endregion
+
     }
 
     internal struct EmptyObject

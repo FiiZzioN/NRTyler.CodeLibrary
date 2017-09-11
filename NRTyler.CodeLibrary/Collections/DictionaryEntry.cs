@@ -50,5 +50,37 @@ namespace NRTyler.CodeLibrary.Collections
 		/// Gets or sets the <see cref="Dictionary{TKey,TValue}"/> entry's value.
 		/// </summary>
 		public TValue Value { get; set; }
-	}
+
+        /*
+	    #region Implementation of IXmlSerializable
+
+        public XmlSchema GetSchema()
+        {
+            return null;
+        }
+
+	    public void ReadXml(XmlReader reader)
+	    {
+	        reader.MoveToContent();
+
+	        if (!reader.IsEmptyElement)
+	            Key = (TKey)Convert.ChangeType(reader.GetAttribute(nameof(Key)), TypeCode.Object);
+
+	        reader.MoveToContent();
+
+            if (!reader.IsEmptyElement)
+	            Value = (TValue)Convert.ChangeType(reader.GetAttribute(nameof(Value)), TypeCode.Object);
+
+            reader.ReadEndElement();
+        }
+
+        public void WriteXml(XmlWriter writer)
+	    {
+	        writer.WriteAttributeString(nameof(Key), Key.ToString());
+	        writer.WriteAttributeString(nameof(Value), Value.ToString());
+        }
+
+        #endregion
+        */
+    }
 }

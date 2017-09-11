@@ -5,7 +5,7 @@
 // Created          : 07-27-2015
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 07-28-2017
+// Last Modified On : 09-01-2017
 //
 // License          : GNU General Public License v3.0
 // ***********************************************************************
@@ -18,6 +18,9 @@ using NRTyler.CodeLibrary.Attributes;
 
 namespace NRTyler.CodeLibrary.Utilities
 {
+    /// <summary>
+    /// Contains methods for dealing with and assigning string values to <see cref="Enum"/>s.
+    /// </summary>
     public class StringEnum
     {
         #region Instance Methods

@@ -12,7 +12,6 @@
 
 using System;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace NRTyler.CodeLibrary.Utilities
@@ -27,7 +26,7 @@ namespace NRTyler.CodeLibrary.Utilities
 	public static class ObjectCopier
 	{
         /// <summary>
-        /// Perform a deep copy of the object.
+        /// Performs a deep copy of the object. The object must be serializable.
         /// </summary>
         /// <typeparam name="T">The type of object being copied.</typeparam>
         /// <param name="source">The object instance to copy.</param>
@@ -37,7 +36,7 @@ namespace NRTyler.CodeLibrary.Utilities
 		{
 			if (!typeof(T).IsSerializable)
 			{
-				throw new ArgumentException("The type must be serializable.", nameof(source));
+				throw new ArgumentException("The type being copied must be serializable!", nameof(source));
 			}
 
 			// Don't serialize a null object, simply return the default for that object.
