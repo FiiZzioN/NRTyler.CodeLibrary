@@ -5,9 +5,9 @@
 // Created          : 07-17-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 08-12-2017
+// Last Modified On : 08-21-2017
 //
-// License          : GNU General Public License v3.0
+// License          : MIT License
 // ***********************************************************************
 
 using System;

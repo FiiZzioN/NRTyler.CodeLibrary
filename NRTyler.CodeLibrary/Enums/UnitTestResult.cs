@@ -5,9 +5,9 @@
 // Created          : 07-28-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 07-28-2017
+// Last Modified On : 07-31-2017
 //
-// License          : GNU General Public License v3.0
+// License          : MIT License
 // ***********************************************************************
 
 using NRTyler.CodeLibrary.Attributes;

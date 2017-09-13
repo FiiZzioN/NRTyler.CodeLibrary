@@ -5,9 +5,9 @@
 // Created          : 09-01-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 09-01-2017
+// Last Modified On : 09-03-2017
 //
-// License          : GNU General Public License v3.0
+// License          : MIT License
 // ***********************************************************************
 
 using System.Collections;

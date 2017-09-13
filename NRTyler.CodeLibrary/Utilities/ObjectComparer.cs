@@ -5,11 +5,10 @@
 // Created          : 09-05-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 09-05-2017
+// Last Modified On : 09-07-2017
 //
-// License          : GNU General Public License v3.0
+// License          : MIT License
 // ***********************************************************************
-
 
 using System;
 using System.IO;
