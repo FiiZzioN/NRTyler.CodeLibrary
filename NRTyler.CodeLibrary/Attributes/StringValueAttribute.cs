@@ -5,7 +5,7 @@
 // Created          : 07-27-2015
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 07-28-2017
+// Last Modified On : 09-18-2017
 //
 // License          : MIT License
 // ***********************************************************************
@@ -20,11 +20,6 @@ namespace NRTyler.CodeLibrary.Attributes
     public sealed class StringValueAttribute : Attribute
     {
         /// <summary>
-        /// The <see cref="string"/> value that was assigned.
-        /// </summary>
-        private string _value;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="StringValueAttribute"/> class.
         /// </summary>
         /// <param name="value">The value.</param>
@@ -32,6 +27,11 @@ namespace NRTyler.CodeLibrary.Attributes
         {
             this._value = value;
         }
+
+        /// <summary>
+        /// The <see cref="string"/> value that was assigned.
+        /// </summary>
+        private string _value;
 
         /// <summary>
         /// Gets the <see cref="string"/> value that was assigned.

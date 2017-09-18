@@ -5,7 +5,7 @@
 // Created          : 02-22-2008
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 09-07-2017
+// Last Modified On : 09-13-2017
 //
 // License          : MIT License
 // ***********************************************************************
@@ -17,43 +17,39 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace NRTyler.CodeLibrary.Utilities
 {
 	/// <summary>
-	/// Provides a method for performing a deep copy of an object.
-	/// Binary Serialization is used to perform the copy.
+	/// Provides a method for performing a deep copy of an <see cref="object"/>. Binary serialization is used to perform the copy.
 	/// </summary>
-	/// <remarks>
-	/// Reference Article http://www.codeproject.com/KB/tips/SerializedObjectCloner.aspx
-	/// </remarks>
 	public static class ObjectCopier
 	{
         /// <summary>
         /// Performs a deep copy of the object. The object must be serializable.
         /// </summary>
-        /// <typeparam name="T">The type of object being copied.</typeparam>
-        /// <param name="source">The object instance to copy.</param>
-        /// <returns>The copied object.</returns>
+        /// <typeparam name="T">The type of <see cref="object"/> being copied.</typeparam>
+        /// <param name="obj">The <see cref="object"/> to copy.</param>
+        /// <returns>A copy of the <see cref="object"/> that was targeted.</returns>
         /// <exception cref="ArgumentException">The <see cref="Type"/> must be serializable.</exception>
-        public static T Clone<T>(this T source)
+        public static T CopyObject<T>(this T obj)
 		{
 			if (!typeof(T).IsSerializable)
 			{
-				throw new ArgumentException("The type being copied must be serializable!", nameof(source));
+				throw new ArgumentException("The type being copied must be serializable!", nameof(obj));
 			}
 
-			// Don't serialize a null object, simply return the default for that object.
-			if (Object.ReferenceEquals(source, null))
+			// Don't serialize a null object, just return the default of that object.
+			if (Object.ReferenceEquals(obj, null))
 			{
 				return default(T);
 			}
 
-			var formatter = new BinaryFormatter();
-			var stream    = new MemoryStream();
+			var binaryFormatter = new BinaryFormatter();
+			var memoryStream    = new MemoryStream();
 
-			using (stream)
+			using (memoryStream)
 			{
-				formatter.Serialize(stream, source);
-				stream.Seek(0, SeekOrigin.Begin);
+			    binaryFormatter.Serialize(memoryStream, obj);
+				memoryStream.Seek(0, SeekOrigin.Begin);
 
-				return (T)formatter.Deserialize(stream);
+				return (T)binaryFormatter.Deserialize(memoryStream);
 			}
 		}
 	}

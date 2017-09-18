@@ -24,7 +24,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
         {
             // Arrange
             var testObject      = new TestObject();
-            var testObjectClone = testObject.Clone();
+            var testObjectClone = testObject.CopyObject();
 
             var expected = true;
 
@@ -40,9 +40,9 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
         public void NotSerializable()
         {
             // Arrange
-            // Not Serializable object.
+            // Not a Serializable object.
             var testObject      = new EmptyObject();
-            var testObjectClone = testObject.Clone();
+            var testObjectClone = testObject.CopyObject();
 
             var expected = true;
 

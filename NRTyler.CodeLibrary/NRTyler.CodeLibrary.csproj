@@ -52,16 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\BaseRepository.cs" />
     <Compile Include="Attributes\ExpectedExceptionMsg.cs" />
     <Compile Include="Attributes\StringValueAttribute.cs" />
     <Compile Include="Enums\UnitTestResult.cs" />
     <Compile Include="Extensions\IEnumerableCollectionEx.cs" />
     <Compile Include="Extensions\RandomEx.cs" />
     <Compile Include="Extensions\StringEnumEx.cs" />
-    <Compile Include="Interfaces\Generic\IXmlRepository.cs" />
     <Compile Include="Interfaces\ICustomFormatProvider.cs" />
-    <Compile Include="Interfaces\Generic\IBinaryRepository.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\Generic\IRepository.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringEx.cs" />

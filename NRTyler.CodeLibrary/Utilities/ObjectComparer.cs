@@ -22,82 +22,6 @@ namespace NRTyler.CodeLibrary.Utilities
     /// </summary>
     public static class ObjectComparer
     {
-        #region Not Working
-
-        /*
-        /// <summary>
-        /// Preforms a comparison of an <see cref="object"/>'s properties
-        /// to another <see cref="object"/>'s properties.
-        /// </summary>
-        /// <param name="obj">The <see cref="object"/> to compare.</param>
-        /// <param name="item">The <see cref="object"/> to compare against.</param>
-        /// <returns>If the objects are equal, return true, otherwise returns false.</returns>
-        public static bool Compare(this object obj, object item)
-        {
-            if (ReferenceEquals(obj, item)) return true;
-            if (obj == null || item == null) return false;
-
-            // Compare two object's type, return false if they are different.
-            if (obj.GetType() != item.GetType()) return false;
-
-            var result = true;
-
-            try
-            {
-                // Get all properties of obj and compare each other
-                foreach (var property in obj.GetType().GetProperties())
-                {
-                    var objValue = property.GetValue(obj);
-                    var itemValue = property.GetValue(item);
-
-                    if (!objValue.Equals(itemValue)) result = false;
-                }
-            }
-            catch (Exception e)
-            {
-                e.LogCompleteExceptionInfo();
-                throw;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Preforms a deep comparison of an <see cref="object"/>'s properties, and their properties, 
-        /// and their properties, etc... (using recursion) to another <see cref="object"/>'s properties.
-        /// </summary>
-        /// <param name="obj">The <see cref="object"/> to compare.</param>
-        /// <param name="item">The <see cref="object"/> to compare against.</param>
-        /// <returns>If the objects are equal, return true, otherwise returns false.</returns>
-        public static bool DeepCompare(this object obj, object item)
-        {
-            if (ReferenceEquals(obj, item)) return true;
-            if (obj == null || item == null) return false;
-
-            // Compare two object's type, return false if they are different.
-            if (obj.GetType() != item.GetType()) return false;
-
-            // Properties of type: int, double, DateTime, etc... are not classes, they're structs.
-            if (!obj.GetType().IsClass) return obj.Equals(item);
-
-            var result = true;
-
-            // Get all properties of obj and compare each other
-            foreach (var property in obj.GetType().GetProperties())
-            {
-                var objValue  = property.GetValue(obj);
-                var itemValue = property.GetValue(item);
-
-                // Recursion
-                if (!objValue.Compare(itemValue)) result = false;
-            }
-
-            return result;
-        }
-        */
-
-        #endregion
-
         /// <summary>
         /// Compares an <see cref="object" /> against the <see cref="object" /> that invoked this method.
         /// The comparison is accomplished by serializing both objects, converting them to a byte array,
@@ -119,7 +43,7 @@ namespace NRTyler.CodeLibrary.Utilities
                 }
                 catch (Exception e)
                 {
-                    e.LogCompleteExceptionInfo();
+                    e.LogExceptionInfo();
                     throw;
                 }
             }
