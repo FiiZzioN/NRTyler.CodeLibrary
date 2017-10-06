@@ -40,17 +40,22 @@ namespace NRTyler.CodeLibrary.Abstract
         #region Implementation of IRepository<T>
 
         /// <summary>
-        /// Serializes the object to a file in binary format using the specified <see cref="Stream"/>.
+        /// Serializes the <see cref="object"/> to a file in binary format using the specified <see cref="Stream" />.
         /// </summary>
-        /// <param name="stream">The <see cref="Stream"/> to the specified location and mode.</param>
-        /// <param name="obj">The <see cref="object"/> to be serialized.</param>
-        /// <exception cref="T:System.ArgumentNullException">The object being serialized can not be null!</exception>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="stream">The <see cref="Stream" /> to the specified location and mode.</param>
+        /// <param name="obj">The <see cref="object" /> to be serialized.</param>
+        /// <exception cref="System.ArgumentNullException">The <see cref="object"/> being serialized cannot be null!</exception>
+        /// <exception cref="System.ArgumentException">The <see cref="object"/> being serialized must be serializable! Who would've guessed!</exception>
         public virtual void Serialize(Stream stream, T obj)
         {
             var binaryFormatter = new BinaryFormatter();
 
             if (obj == null)
                 throw new ArgumentNullException(nameof(obj), "The object being serialized cannot be null!");
+
+            if (!obj.GetType().IsSerializable)
+                throw new ArgumentException("The object being serialized must be serializable! Who would've guessed!", nameof(obj));
 
             using (stream)
             {

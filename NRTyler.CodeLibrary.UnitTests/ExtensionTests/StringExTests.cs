@@ -95,7 +95,7 @@ namespace NRTyler.CodeLibrary.UnitTests.ExtensionTests
 			get { return this.title; }
 			set
 			{
-				value.TitleInsurance(ref this.title);
+				this.title = value.HandleNullOrWhiteSpace();
 			}
 		}
 	}

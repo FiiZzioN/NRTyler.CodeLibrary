@@ -54,13 +54,17 @@
   <ItemGroup>
     <Compile Include="Abstract\BaseRepository.cs" />
     <Compile Include="Attributes\ExpectedExceptionMsg.cs" />
-    <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="Attributes\StringLabelAttribute.cs" />
+    <Compile Include="DirectoryCopier.cs" />
     <Compile Include="Enums\UnitTestResult.cs" />
     <Compile Include="Extensions\IEnumerableCollectionEx.cs" />
+    <Compile Include="Extensions\IEnumerableEx.cs" />
     <Compile Include="Extensions\RandomEx.cs" />
     <Compile Include="Extensions\StringEnumEx.cs" />
     <Compile Include="Interfaces\ICustomFormatProvider.cs" />
     <Compile Include="Interfaces\Generic\IRepository.cs" />
+    <Compile Include="Interfaces\Generic\ICanSerialize.cs" />
+    <Compile Include="Interfaces\Generic\ICanDeserialize.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringEx.cs" />
@@ -71,7 +75,9 @@
     <Compile Include="Utilities\ObjectComparer.cs" />
     <Compile Include="Utilities\ObjectCopier.cs" />
     <Compile Include="Utilities\ObjectScanner.cs" />
+    <Compile Include="Utilities\Repository.cs" />
     <Compile Include="Utilities\SerializationAid.cs" />
+    <Compile Include="Utilities\StringLabel.cs" />
     <Compile Include="Utilities\TypeValidator.cs" />
     <Compile Include="Utilities\Assists\UnitTestAlert.cs" />
     <Compile Include="Utilities\Dice.cs" />
@@ -80,7 +86,6 @@
     <Compile Include="Utilities\Generators\NumberBuilder.cs" />
     <Compile Include="Utilities\Generators\NumericGenerator.cs" />
     <Compile Include="Utilities\Generators\ParameterBundle.cs" />
-    <Compile Include="Utilities\StringEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EventArgs\" />

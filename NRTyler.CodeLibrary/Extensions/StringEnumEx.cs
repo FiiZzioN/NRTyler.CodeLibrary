@@ -17,7 +17,7 @@ using NRTyler.CodeLibrary.Utilities;
 namespace NRTyler.CodeLibrary.Extensions
 {
     /// <summary>
-    /// Extension method(s) for the <see cref="StringEnum"/> class.
+    /// Extension method(s) for the <see cref="StringLabel"/> class.
     /// </summary>
     public static class StringEnumEx
     {
@@ -25,10 +25,10 @@ namespace NRTyler.CodeLibrary.Extensions
         /// Gets a string value for a particular enum value.
         /// </summary>
         /// <param name="enumeration">The enumeration to analyze.</param>
-        /// <returns>String value associated via a <see cref="StringValueAttribute" /> attribute, if not found returns null.</returns>
+        /// <returns>String value associated via a <see cref="StringLabelAttribute" />, if not found returns null.</returns>
         public static string GetStringValue(this Enum enumeration)
         {
-            return StringEnum.GetStringValue(enumeration);
+            return StringLabel.GetLabel(enumeration);
         }
     }
 }

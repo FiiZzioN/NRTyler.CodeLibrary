@@ -51,6 +51,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionTests\IEnumerableExTests.cs" />
     <Compile Include="ExtensionTests\StringExTests.cs" />
     <Compile Include="TestObject.cs" />
     <Compile Include="UtilityTests\DiceTests.cs" />
@@ -61,7 +62,7 @@
     <Compile Include="UtilityTests\GeneratorTests\ParameterBundleTests.cs" />
     <Compile Include="UtilityTests\ObjectCopierTests.cs" />
     <Compile Include="UtilityTests\ObjectScannerTests.cs" />
-    <Compile Include="UtilityTests\StringEnumTests.cs" />
+    <Compile Include="UtilityTests\StringLabelTests.cs" />
     <Compile Include="UtilityTests\TypeValidatorTests.cs" />
     <Compile Include="UtilityTests\ExtendedMathConstantsTests.cs" />
     <Compile Include="VerificationTool.cs" />

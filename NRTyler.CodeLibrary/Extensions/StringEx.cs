@@ -11,6 +11,7 @@
 // ***********************************************************************
 
 using System;
+using System.Diagnostics;
 using System.Globalization;
 
 namespace NRTyler.CodeLibrary.Extensions
@@ -49,6 +50,7 @@ namespace NRTyler.CodeLibrary.Extensions
 		/// </summary>
 		/// <param name="incomingValue">The incoming value.</param>
 		/// <param name="backingField">The backing field that's meant to be a title.</param>
+		[Obsolete("Was the first implementation of this concept. Please use the method \"HandleNullOrWhiteSpace\" instead.")]
 		public static void TitleInsurance(this string incomingValue, ref string backingField)
 		{
 			if (String.IsNullOrWhiteSpace(incomingValue))
@@ -62,5 +64,21 @@ namespace NRTyler.CodeLibrary.Extensions
 
 			backingField = incomingValue;
 		}
-	}
+
+	    /// <summary>
+	    /// Insures that if the incoming value is <see langword="null"/>, empty, or consists of only whitespace characters, 
+	    /// a valid default title will be applied in its place. If the incoming value is valid, then it returns the same value.
+	    /// </summary>
+	    /// <param name="incomingValue">The incoming value.</param>
+	    /// <param name="titleIfInvalid">The title to return if the incoming value if it's not valid.</param>
+	    public static string HandleNullOrWhiteSpace(this string incomingValue, string titleIfInvalid = "Invalid Title")
+	    {
+	        if (String.IsNullOrWhiteSpace(incomingValue))
+	        {
+	            return titleIfInvalid;
+            }
+
+	        return incomingValue;
+	    }
+    }
 }

@@ -19,13 +19,13 @@ namespace NRTyler.CodeLibrary.Enums
     /// </summary>
     public enum UnitTestResult
     {
-        [StringValue("Failed")]
+        [StringLabel("Failed")]
         Failed = 0,
 
-        [StringValue("Passed")]
+        [StringLabel("Passed")]
         Passed = 1,
 
-        [StringValue("Yet To Run")]
+        [StringLabel("Yet To Run")]
         YetToRun = 2,
     }
 }

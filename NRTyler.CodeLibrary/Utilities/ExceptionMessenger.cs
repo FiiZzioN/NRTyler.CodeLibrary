@@ -122,7 +122,7 @@ namespace NRTyler.CodeLibrary.Utilities
 
             Write($"Source: {exception.Source}");
             Write($"Message: {errorMessage}");
-            Write($"Stack Trace: \n{FormatStackTrace()}");
+            Write($"Stack Trace: \n{exception.StackTrace}");
 
             if (!String.IsNullOrWhiteSpace(exception.HelpLink))
             {
@@ -133,18 +133,6 @@ namespace NRTyler.CodeLibrary.Utilities
             Write("");
 
             return errorMessage;
-
-            #region Local Method // Local method to format the StackTrace how I want for this function only.
-
-            string FormatStackTrace()
-            {
-                var stackTrace = exception.StackTrace;
-                var formatedStackTrace = stackTrace.Replace("at", "    at");
-
-                return formatedStackTrace;
-            }
-
-            #endregion
         }
 
         /// <summary>
