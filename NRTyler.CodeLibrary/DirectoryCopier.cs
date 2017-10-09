@@ -1,12 +1,12 @@
-﻿// ************************************************************************
+﻿// ***********************************************************************
 // Assembly         : NRTyler.CodeLibrary
-// 
+//
 // Author           : Nicholas Tyler
 // Created          : 09-22-2017
-// 
+//
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 09-22-2017
-// 
+// Last Modified On : 10-09-2017
+//
 // License          : MIT License
 // ***********************************************************************
 
@@ -14,6 +14,9 @@ using System.IO;
 
 namespace NRTyler.CodeLibrary
 {
+    /// <summary>
+    /// Contains method(s) that aid in copying files and folders within a specified location to another location. 
+    /// </summary>
     public class DirectoryCopier
     {
         /// <summary>

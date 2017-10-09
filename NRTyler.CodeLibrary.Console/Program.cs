@@ -10,6 +10,7 @@
 // License          : MIT License
 // ***********************************************************************
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,7 +22,9 @@ namespace NRTyler.CodeLibrary.Console
 	{
 		private static void Main()
 		{
-
+		    var path = $"/:";
+            
+		    DirectoryEx.CreateDirectoryIfNonexistent(path);
 		}
 
 		/// <summary>

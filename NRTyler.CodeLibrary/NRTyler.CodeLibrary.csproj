@@ -57,8 +57,10 @@
     <Compile Include="Attributes\StringLabelAttribute.cs" />
     <Compile Include="DirectoryCopier.cs" />
     <Compile Include="Enums\UnitTestResult.cs" />
+    <Compile Include="Extensions\DirectoryEx.cs" />
     <Compile Include="Extensions\IEnumerableCollectionEx.cs" />
     <Compile Include="Extensions\IEnumerableEx.cs" />
+    <Compile Include="Extensions\PathEx.cs" />
     <Compile Include="Extensions\RandomEx.cs" />
     <Compile Include="Extensions\StringEnumEx.cs" />
     <Compile Include="Interfaces\ICustomFormatProvider.cs" />

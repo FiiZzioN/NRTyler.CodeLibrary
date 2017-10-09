@@ -51,8 +51,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionTests\DirectoryExTests.cs" />
     <Compile Include="ExtensionTests\IEnumerableExTests.cs" />
+    <Compile Include="ExtensionTests\PathExTests.cs" />
     <Compile Include="ExtensionTests\StringExTests.cs" />
+    <Compile Include="TestAid.cs" />
     <Compile Include="TestObject.cs" />
     <Compile Include="UtilityTests\DiceTests.cs" />
     <Compile Include="UtilityTests\GeneratorTests\CharacterGeneratorTests.cs" />
