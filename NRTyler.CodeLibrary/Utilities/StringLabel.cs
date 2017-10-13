@@ -25,15 +25,14 @@ namespace NRTyler.CodeLibrary.Utilities
         /// Gets the cached labels. If you dig up a label, try to cache it. The heavy-lifting has 
         /// already been done, so there's no need to do it again. This aids the program's performance.
         /// </summary>
-        // ReSharper disable once StaticMemberInGenericType
         private static Hashtable CachedLabels { get; } = new Hashtable();
 
         /// <summary>
-        /// Gets the label that was applied to the member.
+        /// The back-end method that gets the label that's applied to an <see cref="Enum"/>'s member.
         /// </summary>
         /// <param name="member">The member that the <see cref="StringLabelAttribute"/> is applied to.</param>
-        /// <returns>If the member has a <see cref="StringLabelAttribute"/> applied to it, the label will be returned. Otherwise, this returns null.</returns>
-        public static string GetLabel(Enum member)
+        /// <returns>If the member has a <see cref="StringLabelAttribute"/> applied to it, the label will be returned. Otherwise, this returns <see langword="null"/>.</returns>
+        private static string GetLabelBackEnd(Enum member)
         {
             string labelOutput = null;
 
@@ -61,6 +60,36 @@ namespace NRTyler.CodeLibrary.Utilities
             }
 
             return labelOutput;
+        }
+        
+        /// <summary>
+        /// Gets the label that's applied to an <see cref="Enum"/>'s member.
+        /// </summary>
+        /// <param name="member">The member that the <see cref="StringLabelAttribute" /> is applied to.</param>
+        /// <param name="canReturnNull">
+        /// Not all <see cref="Enum"/> members have a <see cref="StringLabelAttribute"/> applied to them. If this argument is set to <see langword="true"/>, a 
+        /// <see langword="null"/> value will be returned should the <see cref="Enum"/>'s member not include a <see cref="StringLabelAttribute"/>. 
+        /// Alternatively, if this argument is set to <see langword="false"/>, a <see langword="string"/> value consisting of the <see cref="Enum"/> member's name will be returned rather than the <see langword="null"/> value.
+        /// </param>
+        /// <returns>If the member has a <see cref="StringLabelAttribute" /> applied to it, the label will be returned. Otherwise, this returns <see langword="null"/>.</returns>
+        public static string GetLabel(Enum member, bool canReturnNull = true)
+        {
+            var returnedLabel = StringLabel.GetLabelBackEnd(member);
+
+            // If we are allowed to return null, then no other logic needs to be applied.
+            if (canReturnNull)
+            {
+                return returnedLabel;
+            }
+
+            // If we aren't allowed to return null, we change the 'returnedLabel' from null 
+            // to the name of the enum constant that was specified.
+            if (!StringLabel.HasLabel(member))
+            {
+                returnedLabel = member.ToString();
+            }
+
+            return returnedLabel;
         }
 
         /// <summary>

@@ -10,6 +10,7 @@
 // License          : MIT License
 // ***********************************************************************
 
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Attributes;
 using NRTyler.CodeLibrary.Utilities;
@@ -25,7 +26,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
         {
             LEO = 0,
             MEO = 1,
-            SSO = 2,
+            SunSynchronousOrbit = 2,
             GTO = 3,
             GSO = 4,
         }
@@ -113,6 +114,19 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
 
             // This has no label, so we should get false.
             Assert.IsFalse(StringLabel.HasLabel(EnumNoLabels.GSO));
+        }
+
+        [TestMethod]
+        public void WhenNullIsAllowedTest()
+        {
+            // These should return 'Dres' and the second should return 'SunSynchronousOrbit' since
+            // that's what both enum constants are named and they have no label stating otherwise.
+            Assert.AreEqual("Dres", StringLabel.GetLabel(EnumSomeLabels.Dres, false));
+            Assert.AreEqual("SunSynchronousOrbit", StringLabel.GetLabel(EnumNoLabels.SunSynchronousOrbit, false));
+
+            // Should return null since both 'GSO' and 'Jool' have no label and we stated that null values aren't allowed.
+            Assert.IsNull(StringLabel.GetLabel(EnumNoLabels.GSO, true));
+            Assert.IsNull(StringLabel.GetLabel(EnumSomeLabels.Jool, true));
         }
     }
 }
