@@ -30,7 +30,7 @@ namespace NRTyler.CodeLibrary.Utilities
 		public static int Roll(int choices = 2)
 		{
 			if (choices < 2)
-				throw new ArgumentOutOfRangeException($"{nameof(choices)}", "For the dice to work there has to be at least two choices!");
+				throw new ArgumentOutOfRangeException($"{nameof(choices)}", "For the dice roll to work there has to be at least two choices!");
 
 			return NumericGenerator.GenerateValue(0, choices);
 		}

@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,10 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\BaseRepository.cs" />
+    <Compile Include="Utilities\DataContractXmlRepository.cs" />
     <Compile Include="Attributes\ExpectedExceptionMsg.cs" />
     <Compile Include="Attributes\StringLabelAttribute.cs" />
-    <Compile Include="DirectoryCopier.cs" />
+    <Compile Include="Utilities\DirectoryCopier.cs" />
     <Compile Include="Enums\UnitTestResult.cs" />
     <Compile Include="Extensions\DirectoryEx.cs" />
     <Compile Include="Extensions\IEnumerableCollectionEx.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="Collections\DictionaryEntry.cs" />
     <Compile Include="Extensions\ConsoleEx.cs" />
+    <Compile Include="Utilities\CountdownClock.cs" />
     <Compile Include="Utilities\ExceptionMessenger.cs" />
     <Compile Include="Utilities\ExtendedMathConstants.cs" />
     <Compile Include="Utilities\ObjectComparer.cs" />
@@ -81,7 +83,6 @@
     <Compile Include="Utilities\SerializationAid.cs" />
     <Compile Include="Utilities\StringLabel.cs" />
     <Compile Include="Utilities\TypeValidator.cs" />
-    <Compile Include="Utilities\Assists\UnitTestAlert.cs" />
     <Compile Include="Utilities\Dice.cs" />
     <Compile Include="Utilities\Generators\CharacterGenerator.cs" />
     <Compile Include="Utilities\Generators\NameGenerator.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Utilities\Generators\ParameterBundle.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Abstract\" />
     <Folder Include="EventArgs\" />
   </ItemGroup>
   <ItemGroup>

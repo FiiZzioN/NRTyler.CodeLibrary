@@ -22,10 +22,10 @@ namespace NRTyler.CodeLibrary.Extensions
     public static class StringEnumEx
     {
         /// <summary>
-        /// Gets a string value for a particular enum value.
+        /// Gets the <see cref="StringLabelAttribute"/> that's applied to the specified <see cref="Enum"/> member.
         /// </summary>
-        /// <param name="enumeration">The enumeration to analyze.</param>
-        /// <returns>String value associated via a <see cref="StringLabelAttribute" />, if not found returns null.</returns>
+        /// <param name="enumeration">The <see cref="Enum"/> member to analyzed.</param>
+        /// <returns>The <see langword="string"/>  value associated via a <see cref="StringLabelAttribute" />, if not found returns null.</returns>
         public static string GetStringValue(this Enum enumeration)
         {
             return StringLabel.GetLabel(enumeration);

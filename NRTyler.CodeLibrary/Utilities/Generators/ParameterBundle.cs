@@ -5,7 +5,7 @@
 // Created          : 07-28-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 08-21-2017
+// Last Modified On : 11-29-2017
 //
 // License          : MIT License
 // ***********************************************************************
@@ -56,52 +56,23 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 
 		#endregion
 
-		#region Backing Fields
-
-		private T maxValue;
-		private T minValue;
-		private int arraySize;
-
-		#endregion
-
 		#region Properties
 
-		/// <summary>
+	    /// <summary>
 		/// The minimum value for a generator to generate.
 		/// </summary>
-		public T MinValue
-		{
-			get { return this.minValue; }
-			set
-			{
-				this.minValue = value;
-			}
-		}
+		public T MinValue { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// The maximum value for a generator to generate.
 		/// </summary>
-		public T MaxValue
-		{
-			get { return this.maxValue; }
-			set
-			{
-				this.maxValue = value;
-			}
-		}
+		public T MaxValue { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// The amount of item(s) that should be in a generated array.
 		/// </summary>
-		public int ArraySize
-		{
-			get { return this.arraySize; }
-			set
-			{
-				this.arraySize = value;
-			}
-		}
+		public int ArraySize { get; set; }
 
-		#endregion
+	    #endregion
 	}
 }

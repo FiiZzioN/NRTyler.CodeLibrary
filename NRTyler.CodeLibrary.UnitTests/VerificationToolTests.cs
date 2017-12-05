@@ -14,7 +14,6 @@ using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Enums;
-using NRTyler.CodeLibrary.Utilities.Assists;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
 namespace NRTyler.CodeLibrary.UnitTests
@@ -69,10 +68,7 @@ namespace NRTyler.CodeLibrary.UnitTests
 			var actualArray  = tool.ArrayToVerify;
 			var actualValues = new List<double> { tool.MinValue, tool.MaxValue };
 			var actualResult = tool.TestResult;
-
-			UnitTestAlert.CollectionAlert(expectedValues, actualValues, "Generator constraints don't match!");
-			UnitTestAlert.CollectionAlert(expectedArray, actualArray, "Arrays don't match!");
-
+            
 			//Assert
 			Assert.AreEqual(expectedArray, actualArray);
 			CollectionAssert.AreEqual(expectedValues, actualValues);
@@ -125,10 +121,7 @@ namespace NRTyler.CodeLibrary.UnitTests
 			var actualArray = tool.ArrayToVerify;
 			var actualValues = new List<double> { tool.MinValue, tool.MaxValue };
 			var actualResult = tool.TestResult;
-
-			UnitTestAlert.CollectionAlert(expectedValues, actualValues, "Generator constraints don't match!");
-			UnitTestAlert.CollectionAlert(expectedArray, actualArray, "Arrays don't match!");
-
+            
 			//Assert
 			Assert.AreEqual(expectedArray, actualArray);
 			CollectionAssert.AreEqual(expectedValues, actualValues);

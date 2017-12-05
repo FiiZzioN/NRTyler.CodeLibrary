@@ -5,7 +5,7 @@
 // Created          : 07-28-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 07-31-2017
+// Last Modified On : 11-29-2017
 //
 // License          : MIT License
 // ***********************************************************************
@@ -21,7 +21,13 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
     {
 	    // Instantiating a class-wide randomizer makes sure that if a user calls multiple generation methods
 	    // simultaneously, you don't get the same number since it stays on the same thread when it was called.
-		private static Random Randomizer = new Random();
+		private static Random Randomizer { get; } = new Random();
+
+        /// <summary>
+        /// Gets the array containing the integer values for the allowed special characters. All allowed 
+        /// characters can be found on the number row on your keyboard, minus the parentheses.
+        /// </summary>
+        public static int[] SpecialCharacters { get; } = {33, 35, 36, 37, 38, 42, 64, 94};
 
         #region Upper
 
@@ -83,36 +89,98 @@ namespace NRTyler.CodeLibrary.Utilities.Generators
 
         #endregion
 
-        #region Character
+        #region Special
 
         /// <summary>
-        /// Returns a random Uppercase or Lowercase letter.
+        /// Returns a random special character.
         /// </summary>
-        /// <returns>System.Char.</returns>
-        public static char Character()
+        /// <returns>A random special character.</returns>
+        public static char Special()
         {
-            var diceRoll = Randomizer.Next(0, 2);
-            switch (diceRoll)
-            {
-                default:
-                    return Upper();
-                case 0:
-                    return Lower();
-            }
+            var index = Randomizer.Next(0, SpecialCharacters.Length);
+
+            return (char)SpecialCharacters[index];
         }
 
         /// <summary>
-        /// Returns an array of random Uppercase or Lowercase letters.
+        /// Returns an array of random special characters.
         /// </summary>
         /// <param name="arraySize">The amount of item(s) in the array.</param>
-        /// <returns>System.Char[].</returns>
-        public static char[] CharacterArray(int arraySize)
+        /// <returns>An array of random special characters.</returns>
+        public static char[] SpecialArray(int arraySize)
         {
             var array = new char[arraySize];
 
             for (var i = 0; i < array.Length; i++)
             {
-                array[i] = Character();
+                array[i] = Special();
+            }
+
+            return array;
+        }
+
+        #endregion
+
+        #region Character
+
+        /// <summary>
+        /// Returns a random Uppercase, Lowercase or Special character.
+        /// </summary>
+        /// <param name="allowSpecialCharacters">
+        /// If set to <see langword="true"/>, special characters 
+        /// are allowed to be returned alongside regular characters. 
+        /// </param>
+        /// <returns>A random regular or special character depending on your choice.</returns>
+        public static char Character(bool allowSpecialCharacters = false)
+        {
+            var diceRoll = allowSpecialCharacters ? Randomizer.Next(0, 3) : Randomizer.Next(0, 2);
+
+            // Special Options
+            if (allowSpecialCharacters)
+            {
+                switch (diceRoll)
+                {
+                    // Default is essentially "case 0"
+                    default:
+                        return Upper();
+                    case 1:
+                        return Lower();
+                    case 2:
+                        return Special();
+
+                }
+            }
+            
+            // Standard Options
+            switch (diceRoll)
+            {
+                // Default is essentially "case 0"
+                default:
+                    return Upper();
+                case 1:
+                    return Lower();
+            }
+        }
+
+        /// <summary>
+        /// Returns an array consisting of random Uppercase, Lowercase or Special characters.
+        /// </summary>
+        /// <param name="arraySize">The amount of item(s) in the array.</param>
+        /// <param name="allowSpecialCharacters">
+        /// If set to <see langword="true"/>, special characters 
+        /// are allowed to be returned alongside regular characters. 
+        /// </param>
+        /// <returns>
+        /// An array consisting of random regular characters, or consisting
+        /// of both random and special characters depending on your choice.
+        /// </returns>
+        public static char[] CharacterArray(int arraySize, bool allowSpecialCharacters = false)
+        {
+            var array = new char[arraySize];
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                array[i] = Character(allowSpecialCharacters);
             }
 
             return array;

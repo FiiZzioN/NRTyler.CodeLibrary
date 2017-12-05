@@ -13,7 +13,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NRTyler.CodeLibrary.Utilities.Assists;
 using NRTyler.CodeLibrary.Utilities.Generators;
 
 namespace NRTyler.CodeLibrary.UnitTests.UtilityTests.GeneratorTests
@@ -74,10 +73,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests.GeneratorTests
 				paramBundle.MinValue,
 				paramBundle.MaxValue
 			};
-
-			UnitTestAlert.EqualityAlert(paramBundle.ArraySize, expectedArraySize, $"{nameof(paramBundle.ArraySize)} and {nameof(expectedArraySize)} aren't equal!");
-			UnitTestAlert.CollectionAlert(expectedValues, actualValues, $"{nameof(expectedValues)} and {nameof(actualValues)} aren't equal!");
-
+            
 			//Assert
 			CollectionAssert.AreEqual(expectedValues, actualValues);
 			Assert.AreEqual(expectedArraySize, actualArraySize);

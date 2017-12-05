@@ -27,11 +27,11 @@ namespace NRTyler.CodeLibrary.Extensions
         /// This is useful for when you need to display a collections's item(s) on a UI.
         /// </summary>
         /// <typeparam name="T">The <see cref="Type" /> that's being used.</typeparam>
-        /// <param name="source">The <see cref="IEnumerable{T}" /> collection to convert to an <see cref="ObservableCollection{T}" />.</param>
+        /// <param name="source">The <see cref="IEnumerable{T}"/> collection to convert to an <see cref="ObservableCollection{T}"/>.</param>
         /// <param name="allowDictionary">If set to true, when an <see cref="IDictionary"/> is passed, a <see cref="NotSupportedException"/> won't be thrown.</param>
-        /// <returns>Returns an <see cref="ObservableCollection{T}" /> containing the same item(s) that the <see cref="IEnumerable{T}" /> collection contained.</returns>
-        /// <exception cref="ArgumentNullException">The <see cref="IEnumerable{T}" /> source cannot be null!</exception>
-        /// <exception cref="NotSupportedException"><see cref="IDictionary" /> cannot be converted to an <see cref="ObservableCollection{T}" /></exception>
+        /// <returns>Returns an <see cref="ObservableCollection{T}"/> containing the same item(s) that the <see cref="IEnumerable{T}"/> collection contained.</returns>
+        /// <exception cref="ArgumentNullException">The <see cref="IEnumerable{T}"/> source cannot be null!</exception>
+        /// <exception cref="NotSupportedException"><see cref="IDictionary"/> cannot be converted to an <see cref="ObservableCollection{T}"/></exception>
         public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> source, bool allowDictionary = false)
         {
             // Ensure that the source meets these basic criteria before returning the ObservableCollection.

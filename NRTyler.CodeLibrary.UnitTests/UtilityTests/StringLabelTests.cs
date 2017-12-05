@@ -86,10 +86,10 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
 
             // Should receive a string value for Duna, but should get null for Kerbin.
             Assert.AreEqual("Duna", StringLabel.GetLabel(EnumSomeLabels.Duna));
-            Assert.IsNull(StringLabel.GetLabel(EnumSomeLabels.Kerbin));
+            Assert.IsNull(StringLabel.GetLabel(EnumSomeLabels.Kerbin), "StringLabel.GetLabel(EnumSomeLabels.Kerbin) != null");
 
             // Shouldn't have a string value to return.
-            Assert.IsNull(StringLabel.GetLabel(EnumNoLabels.GTO));
+            Assert.IsNull(StringLabel.GetLabel(EnumNoLabels.GTO), "StringLabel.GetLabel(EnumNoLabels.GTO) != null");
         }
 
         [TestMethod]
@@ -125,8 +125,8 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             Assert.AreEqual("SunSynchronousOrbit", StringLabel.GetLabel(EnumNoLabels.SunSynchronousOrbit, false));
 
             // Should return null since both 'GSO' and 'Jool' have no label and we stated that null values aren't allowed.
-            Assert.IsNull(StringLabel.GetLabel(EnumNoLabels.GSO, true));
-            Assert.IsNull(StringLabel.GetLabel(EnumSomeLabels.Jool, true));
+            Assert.IsNull(StringLabel.GetLabel(EnumNoLabels.GSO, true), "StringLabel.GetLabel(EnumNoLabels.GSO, true) != null");
+            Assert.IsNull(StringLabel.GetLabel(EnumSomeLabels.Jool, true), "StringLabel.GetLabel(EnumSomeLabels.Jool, true) != null");
         }
     }
 }

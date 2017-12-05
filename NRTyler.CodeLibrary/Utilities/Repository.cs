@@ -30,7 +30,6 @@ namespace NRTyler.CodeLibrary.Utilities
         /// Serializes the <see cref="object"/> to a file in binary format using
         /// the specified <see cref="Stream"/> using a basic serialization process.
         /// </summary>
-        /// <typeparam name="T">The <see cref="Type"/> being serialized.</typeparam>
         /// <param name="stream">The <see cref="Stream" /> to the specified location and mode.</param>
         /// <param name="obj">The <see cref="object" /> to be serialized.</param>
         /// <exception cref="System.ArgumentNullException">The <see cref="object"/> being serialized cannot be null!</exception>
@@ -73,7 +72,6 @@ namespace NRTyler.CodeLibrary.Utilities
         /// <summary>
         /// Deserializes a file saved in a binary format using the specified <see cref="Stream"/>  using a basic deserialization process.
         /// </summary>
-        /// <typeparam name="T">The <see cref="Type"/> being deserialized.</typeparam>
         /// <param name="stream">The <see cref="Stream" /> to the specified file and mode.</param>
         /// <returns>The deserialized <see cref="object"/>.</returns>
         /// <exception cref="System.ArgumentNullException">The <see cref="Stream"/> being used cannot be null!</exception>
@@ -119,7 +117,6 @@ namespace NRTyler.CodeLibrary.Utilities
         /// Serializes the <see cref="object"/> to a file in binary format 
         /// using the specified <see cref="Stream" />. This method can be overridden.
         /// </summary>
-        /// <typeparam name="T">The <see cref="Type"/> being serialized.</typeparam>
         /// <param name="stream">The <see cref="Stream" /> to the specified location and mode.</param>
         /// <param name="obj">The <see cref="object" /> to be serialized.</param>
         /// <exception cref="System.ArgumentNullException">The <see cref="object"/> being serialized cannot be null!</exception>
@@ -162,7 +159,6 @@ namespace NRTyler.CodeLibrary.Utilities
         /// <summary>
         /// Deserializes a file saved in a binary format using the specified <see cref="Stream"/>. This method can be overridden.
         /// </summary>
-        /// <typeparam name="T">The <see cref="Type"/> being deserialized.</typeparam>
         /// <param name="stream">The <see cref="Stream" /> to the specified file and mode.</param>
         /// <returns>The deserialized <see cref="object"/>.</returns>
         /// <exception cref="System.ArgumentNullException">The <see cref="Stream"/> being used cannot be null!</exception>

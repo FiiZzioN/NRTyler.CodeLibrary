@@ -17,9 +17,9 @@ using NRTyler.CodeLibrary.Attributes;
 namespace NRTyler.CodeLibrary.Utilities
 {
     /// <summary>
-    /// Contains method that aid in dealing with <see cref="Enum"/> constants that have a <see cref="StringLabelAttribute"/> applied to it.
+    /// Contains method(s) that aid in dealing with <see cref="Enum"/> members that have a <see cref="StringLabelAttribute"/> applied to it.
     /// </summary>
-    public sealed class StringLabel
+    public static class StringLabel
     {
         /// <summary>
         /// Gets the cached labels. If you dig up a label, try to cache it. The heavy-lifting has 
@@ -61,15 +61,16 @@ namespace NRTyler.CodeLibrary.Utilities
 
             return labelOutput;
         }
-        
+
         /// <summary>
         /// Gets the label that's applied to an <see cref="Enum"/>'s member.
         /// </summary>
         /// <param name="member">The member that the <see cref="StringLabelAttribute" /> is applied to.</param>
         /// <param name="canReturnNull">
-        /// Not all <see cref="Enum"/> members have a <see cref="StringLabelAttribute"/> applied to them. If this argument is set to <see langword="true"/>, a 
-        /// <see langword="null"/> value will be returned should the <see cref="Enum"/>'s member not include a <see cref="StringLabelAttribute"/>. 
-        /// Alternatively, if this argument is set to <see langword="false"/>, a <see langword="string"/> value consisting of the <see cref="Enum"/> member's name will be returned rather than the <see langword="null"/> value.
+        /// Not all <see cref="Enum"/> members have a <see cref="StringLabelAttribute"/> applied to them. If this argument is set to <see langword="true"/>, 
+        /// should the <see cref="Enum"/>'s member not include a <see cref="StringLabelAttribute"/>, a <see langword="null"/> value will be returned. Alternatively, 
+        /// if this argument is set to <see langword="false"/>, a <see langword="string"/> value consisting of the <see cref="Enum"/> member's name will be returned 
+        /// instead of a <see langword="null"/> value.
         /// </param>
         /// <returns>If the member has a <see cref="StringLabelAttribute" /> applied to it, the label will be returned. Otherwise, this returns <see langword="null"/>.</returns>
         public static string GetLabel(Enum member, bool canReturnNull = true)
@@ -110,11 +111,12 @@ namespace NRTyler.CodeLibrary.Utilities
         }
 
         /// <summary>
-        /// Determines whether a member has a <see cref="StringLabelAttribute"/> label.
+        /// Returns a value indicating whether an <see cref="Enum"/>'s 
+        /// member has a <see cref="StringLabelAttribute"/> applied to it.
         /// </summary>
         /// <returns>
-        /// Returns true if the member has a <see cref="StringLabelAttribute"/> 
-        /// label, otherwise this returns false.
+        /// Returns <see langword="true"/> if the member has a <see cref="StringLabelAttribute"/> 
+        /// label, otherwise this returns <see langword="false"/>.
         /// </returns>
         public static bool HasLabel(Enum member)
         {

@@ -5,7 +5,7 @@
 // Created          : 07-28-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 08-03-2017
+// Last Modified On : 11-29-2017
 //
 // License          : MIT License
 // ***********************************************************************
@@ -82,12 +82,6 @@ namespace NRTyler.CodeLibrary.UnitTests
             VerifyArrayValues();
         }
 
-        //public VerificationTool(T multipleValues) : this()
-        //{
-        //    this.ValueToVerify = multipleValues;
-        //    //VerifyNumberBuilder();
-        //}
-
         #endregion
 
         #region Properties
@@ -129,10 +123,10 @@ namespace NRTyler.CodeLibrary.UnitTests
         {
             ResetTestResult();
 
-            foreach (var item in this.ArrayToVerify)
+            foreach (var item in ArrayToVerify)
             {
 				if (item.CompareTo(MinValue) < 0 || item.CompareTo(MaxValue) > 0)
-					return this.TestResult = UnitTestResult.Failed;
+					return TestResult = UnitTestResult.Failed;
             }
 
             return this.TestResult = UnitTestResult.Passed;
@@ -147,7 +141,7 @@ namespace NRTyler.CodeLibrary.UnitTests
             ResetTestResult();
 
             if (ValueToVerify.CompareTo(MinValue) < 0 || ValueToVerify.CompareTo(MaxValue) > 0)
-				return this.TestResult = UnitTestResult.Failed;
+				return TestResult = UnitTestResult.Failed;
 
             return this.TestResult = UnitTestResult.Passed;
         }

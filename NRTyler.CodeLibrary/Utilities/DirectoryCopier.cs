@@ -12,7 +12,7 @@
 
 using System.IO;
 
-namespace NRTyler.CodeLibrary
+namespace NRTyler.CodeLibrary.Utilities
 {
     /// <summary>
     /// Contains method(s) that aid in copying files and folders within a specified location to another location. 
