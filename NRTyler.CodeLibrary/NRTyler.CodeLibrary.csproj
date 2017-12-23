@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Generic\IDataContractRepository.cs" />
+    <Compile Include="Utilities\BasicMediator.cs" />
     <Compile Include="Utilities\DataContractXmlRepository.cs" />
     <Compile Include="Attributes\ExpectedExceptionMsg.cs" />
     <Compile Include="Attributes\StringLabelAttribute.cs" />

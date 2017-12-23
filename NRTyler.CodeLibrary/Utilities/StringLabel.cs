@@ -12,6 +12,7 @@
 
 using System;
 using System.Collections;
+using System.Reflection;
 using NRTyler.CodeLibrary.Attributes;
 
 namespace NRTyler.CodeLibrary.Utilities
@@ -125,11 +126,66 @@ namespace NRTyler.CodeLibrary.Utilities
             // Get the StringLabelAttribute applied to the member.
             var attibutes = StringLabel.GetStringLabelAttribute(member);
 
-            // If we get attribute from the member and it's a 
+            // If we get an attribute from the member and it's a 
             // StringLabelAttribute, then it obviously has a label.
             if (attibutes.Length > 0 && attibutes[0] is StringLabelAttribute)
             {
                 output = true;
+            }
+
+            return output;
+        }
+
+        /// <summary>
+        /// Parses the specified <see cref="Enum"/> to try and find if one of 
+        /// its members has the label that's trying to be found applied to it.
+        /// </summary>
+        /// <param name="type">The type of <see cref="Enum"/> to parse.</param>
+        /// <param name="labelToFind">The label you're trying to find.</param>
+        /// <param name="ignoreCase">Whether or not you wish for the search to be case sensitive.</param>
+        /// <returns>
+        /// Returns an <see cref="Enum"/> member should it find one with the specified label. 
+        /// Returns <see langword="null"/> if a member couldn't be found with the specified label.
+        /// </returns>
+        /// <exception cref="ArgumentException">The <see cref="Type"/> provided must be an <see cref="Enum"/>.</exception>
+        public static object ParseEnum(Type type, string labelToFind, bool ignoreCase = true)
+        {
+            #region Check if type is an Enum.
+
+            if (!type.IsEnum)
+            {
+                throw new ArgumentException($"{nameof(type)} must be an Enum!");
+            }
+
+            #endregion
+
+            object output    = null;
+            string enumLabel = null;
+
+            // Gets all members associated with the Enum that's currently being analyzed.
+            var typeMemberInfo = type.GetMembers();
+
+            foreach (var memberInfo in typeMemberInfo)
+            {
+                // Find if the Enum's member that's currently being analyzed has a 'StringLabelAttribute' applied to it.
+                var attributes = memberInfo.GetCustomAttributes(typeof(StringLabelAttribute), false) as StringLabelAttribute[];
+
+                // If the member does in fact have a 'StringLabelAttribute' applied to it, we 
+                // save the label so we can compare it to the label we're trying to find.
+                if (attributes != null && attributes.Length > 0)
+                {
+                    enumLabel = attributes[0].Label;
+                }
+                
+                // We then try to compare the label we just saved to the label we're trying to 
+                // find. If the labels match, then we know we've found the correct Enum member.
+                if (String.Compare(enumLabel, labelToFind, ignoreCase) == 0)
+                {
+                    // Since the labels match, we parse the Enum and save the member that was found so 
+                    // it can be returned. We also break the loop since we found what we were looking for.
+                    output = Enum.Parse(type, memberInfo.Name);
+                    break;
+                }
             }
 
             return output;

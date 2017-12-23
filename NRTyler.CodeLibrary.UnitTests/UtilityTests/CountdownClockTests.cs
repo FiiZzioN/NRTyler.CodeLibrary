@@ -36,19 +36,11 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             Assert.AreEqual(expectedTime.TotalSeconds, CurrentTime().TotalSeconds, 0.05);
         }
 
-
-        /// <summary>
-        /// Updates the current time of day.
-        /// </summary>
         private TimeSpan CurrentTime()
         {
             return DateTime.Now.TimeOfDay;
         }
 
-        /// <summary>
-        /// Updates the current time of day that's one second ahead.
-        /// </summary>
-        /// <param name="seconds">The expected time.</param>
         private TimeSpan ExpectedTime(int seconds)
         {
             return CurrentTime().Add(new TimeSpan(0, 0, seconds));

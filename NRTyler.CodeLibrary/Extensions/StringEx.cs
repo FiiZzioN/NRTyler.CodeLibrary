@@ -67,18 +67,13 @@ namespace NRTyler.CodeLibrary.Extensions
 
 	    /// <summary>
 	    /// Insures that if the incoming value is <see langword="null"/>, empty, or consists of only whitespace characters, 
-	    /// a valid default title will be applied in its place. If the incoming value is valid, then it returns the same value.
+	    /// a valid default title will be applied in its place. If the incoming value is valid, then it returns incoming value.
 	    /// </summary>
 	    /// <param name="incomingValue">The incoming value.</param>
-	    /// <param name="titleIfInvalid">The title to return if the incoming value if it's not valid.</param>
-	    public static string HandleNullOrWhiteSpace(this string incomingValue, string titleIfInvalid = "Invalid Title")
+	    /// <param name="stringIfInvalid">The string to return if the incoming value to return if it's not valid.</param>
+	    public static string HandleNullOrWhiteSpace(this string incomingValue, string stringIfInvalid = "Invalid String")
 	    {
-	        if (String.IsNullOrWhiteSpace(incomingValue))
-	        {
-	            return titleIfInvalid;
-            }
-
-	        return incomingValue;
+	        return String.IsNullOrWhiteSpace(incomingValue) ? stringIfInvalid : incomingValue;
 	    }
     }
 }

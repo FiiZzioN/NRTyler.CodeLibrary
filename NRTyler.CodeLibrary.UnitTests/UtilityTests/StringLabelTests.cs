@@ -26,7 +26,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
         {
             LEO = 0,
             MEO = 1,
-            SunSynchronousOrbit = 2,
+            SSO = 2,
             GTO = 3,
             GSO = 4,
         }
@@ -122,11 +122,27 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             // These should return 'Dres' and the second should return 'SunSynchronousOrbit' since
             // that's what both enum constants are named and they have no label stating otherwise.
             Assert.AreEqual("Dres", StringLabel.GetLabel(EnumSomeLabels.Dres, false));
-            Assert.AreEqual("SunSynchronousOrbit", StringLabel.GetLabel(EnumNoLabels.SunSynchronousOrbit, false));
+            Assert.AreEqual("SSO", StringLabel.GetLabel(EnumNoLabels.SSO, false));
 
             // Should return null since both 'GSO' and 'Jool' have no label and we stated that null values aren't allowed.
             Assert.IsNull(StringLabel.GetLabel(EnumNoLabels.GSO, true), "StringLabel.GetLabel(EnumNoLabels.GSO, true) != null");
             Assert.IsNull(StringLabel.GetLabel(EnumSomeLabels.Jool, true), "StringLabel.GetLabel(EnumSomeLabels.Jool, true) != null");
+        }
+
+        [TestMethod]
+        public void ParseTest()
+        {
+            // The first should return 'MEO' even though the case does not match. The second should return 'GTO' since 
+            // the cases match, but should return null if the cases are changed even though everything else is the exact same.
+            Assert.AreEqual(EnumWithLabels.MEO, StringLabel.ParseEnum(typeof(EnumWithLabels), "medium earth orbit"));
+            Assert.AreEqual(EnumWithLabels.GTO, StringLabel.ParseEnum(typeof(EnumWithLabels), "Geostationary Transfer Orbit", false));
+            Assert.AreEqual(              null, StringLabel.ParseEnum(typeof(EnumWithLabels), "geostationary transfer orbit", false));
+
+            // The first should return null since the label doesn't match. The second return null since 
+            // the case doesn't match. The third should return null since the label doesn't exist at all.
+            Assert.IsNull(StringLabel.ParseEnum(typeof(EnumSomeLabels), "Mooho"));
+            Assert.IsNull(StringLabel.ParseEnum(typeof(EnumSomeLabels), "eeloo", false));
+            Assert.IsNull(StringLabel.ParseEnum(typeof(EnumSomeLabels), "Jool"));
         }
     }
 }

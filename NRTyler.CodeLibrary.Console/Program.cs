@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using NRTyler.CodeLibrary.Enums;
 using NRTyler.CodeLibrary.Extensions;
 using NRTyler.CodeLibrary.Utilities;
 using NRTyler.CodeLibrary.Utilities.Generators;
@@ -24,13 +25,19 @@ namespace NRTyler.CodeLibrary.Console
     {
         private static void Main()
         {
-            var specialArray = CharacterGenerator.SpecialArray(15);
-            var specialList = CharacterGenerator.SpecialCharacters;
-            var specialBoth = CharacterGenerator.CharacterArray(100, true);
-
-            foreach (var i in specialArray)
+            try
             {
-                Write(i);
+                var value = StringLabel.ParseEnum(typeof(UnitTestResult), "passed");
+
+                if (value == null) throw new ArgumentException();
+
+                Write($"Returned Enum: '{value}'");
+                Write(null);
+            }
+            catch (Exception)
+            {
+                Write("Returned Value Was Null.");
+                Write(null);
             }
         }
 

@@ -71,7 +71,7 @@ namespace NRTyler.CodeLibrary.UnitTests.ExtensionTests
 			//Arrange
 			var test = new TitleTest(String.Empty);
 
-			var expected = "Invalid Title";
+			var expected = "Invalid String";
 
 			//Act
 			var actual = test.Title;

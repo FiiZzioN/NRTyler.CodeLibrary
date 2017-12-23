@@ -5,7 +5,7 @@
 // Created          : 10-01-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 10-26-2017
+// Last Modified On : 12-22-2017
 //
 // License          : MIT License
 // ***********************************************************************
@@ -22,9 +22,9 @@ namespace NRTyler.CodeLibrary.Interfaces.Generic
     public interface ICanDeserialize<T>
     {
         /// <summary>
-        /// Deserializes a file using the specified <see cref="Stream"/>.
+        /// Deserializes an <see cref="object"/> using the specified <see cref="Stream"/>.
         /// </summary>
-        /// <param name="stream">The <see cref="Stream"/> to the specified file and what <see cref="FileMode"/> it's using.</param>
+        /// <param name="stream">The <see cref="Stream"/> that the <see cref="object"/> is being deserialized from.</param>
         /// <returns>The deserialized <see cref="object"/>.</returns>
         T Deserialize(Stream stream);
     }
