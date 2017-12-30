@@ -69,7 +69,8 @@ namespace NRTyler.CodeLibrary.Extensions
             // The logic to execute if the path contains just one invalid character.
             if (invalidCharacterList.Count == 1)
             {
-                throw new ArgumentException($"The path provided contained an invalid character. The invalid character was: '{invalidCharacterList[0]}'");
+                throw new ArgumentException(
+                    $"The path provided contained an invalid character. The invalid character was: '{invalidCharacterList[0]}'");
             }
 
             // The logic to execute if the path contains more than one invalid character.

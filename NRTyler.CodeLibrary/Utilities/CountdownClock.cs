@@ -144,7 +144,6 @@ namespace NRTyler.CodeLibrary.Utilities
 
         #endregion
 
-
         /// <summary>
         /// Occurs when the countdown is completed.
         /// </summary>

@@ -15,7 +15,8 @@ using System;
 namespace NRTyler.CodeLibrary.Interfaces
 {
 	/// <summary>
-	/// This interface combines both the <see cref="IFormatProvider"/> and <see cref="ICustomFormatter"/> interfaces to create a single reference point when making custom formats.
+	/// This interface combines both the <see cref="IFormatProvider"/> and <see cref="ICustomFormatter"/> 
+	/// interfaces to create a single reference point when making custom formats.
 	/// </summary>
 	/// <seealso cref="System.IFormatProvider" />
 	/// <seealso cref="System.ICustomFormatter" />

@@ -25,27 +25,26 @@ namespace NRTyler.CodeLibrary.Console
     {
         private static void Main()
         {
+            List<string> tester = null;
+
             try
             {
-                var value = StringLabel.ParseEnum(typeof(UnitTestResult), "passed");
-
-                if (value == null) throw new ArgumentException();
-
-                Write($"Returned Enum: '{value}'");
-                Write(null);
+                tester.Add("This is a Test");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Write("Returned Value Was Null.");
-                Write(null);
+                e.ShowExceptionMessageBox(ExceptionMessageType.Debug);
             }
+
+
+
         }
 
-		/// <summary>
-		/// Writes the specified value to the console.
-		/// </summary>
-		/// <param name="value">The value to write to the console.</param>
-		private static void Write(object value)
+        /// <summary>
+        /// Writes the specified value to the console.
+        /// </summary>
+        /// <param name="value">The value to write to the console.</param>
+        private static void Write(object value)
 		{
 			System.Console.WriteLine(value);
 		}

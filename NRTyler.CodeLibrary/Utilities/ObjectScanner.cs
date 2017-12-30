@@ -102,7 +102,7 @@ namespace NRTyler.CodeLibrary.Utilities
             }
             catch (TargetInvocationException e)
             {
-                e.LogExceptionInfo();
+                Console.WriteLine(e.Message);
             }
 
             return false;

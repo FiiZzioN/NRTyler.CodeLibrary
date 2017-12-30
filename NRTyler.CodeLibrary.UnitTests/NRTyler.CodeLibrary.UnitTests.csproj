@@ -78,6 +78,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NRTyler.CodeLibrary.Console\NRTyler.CodeLibrary.Console.csproj">
+      <Project>{a65cb016-a22d-4ad1-b530-019040233b8e}</Project>
+      <Name>NRTyler.CodeLibrary.Console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NRTyler.CodeLibrary\NRTyler.CodeLibrary.csproj">
       <Project>{6f76e506-b9ae-4554-a4f6-8a7b7db2edf3}</Project>
       <Name>NRTyler.CodeLibrary</Name>

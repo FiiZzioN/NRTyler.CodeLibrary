@@ -24,7 +24,7 @@ namespace NRTyler.CodeLibrary.Interfaces.Generic
     public interface IDataContractRepository<T> : IRepository<T>
     {
         /// <summary>
-        /// Gets or sets the data contract serializer.
+        /// Gets or sets the <see cref="DataContractSerializer"/>.
         /// </summary>
         DataContractSerializer DCSerializer { get; set; }
     }

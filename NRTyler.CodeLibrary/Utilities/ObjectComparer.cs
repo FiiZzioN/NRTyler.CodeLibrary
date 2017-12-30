@@ -43,7 +43,7 @@ namespace NRTyler.CodeLibrary.Utilities
                 }
                 catch (Exception e)
                 {
-                    e.LogExceptionInfo();
+                    Console.WriteLine(e.Message);
                     throw;
                 }
             }

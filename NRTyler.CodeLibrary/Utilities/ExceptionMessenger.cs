@@ -11,6 +11,10 @@
 // ***********************************************************************
 
 using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+using NRTyler.CodeLibrary.Enums;
+using NRTyler.CodeLibrary.Extensions;
 
 namespace NRTyler.CodeLibrary.Utilities
 {
@@ -20,6 +24,194 @@ namespace NRTyler.CodeLibrary.Utilities
     [Serializable]
     public static class ExceptionMessenger
     {
+        /// <summary>
+        /// Gets or sets the message that will be in the <see cref="MessageBox"/>.
+        /// </summary>
+        private static string Message { get; set; } = String.Empty;
+
+        /// <summary>
+        /// Gets or sets the caption of the <see cref="MessageBox"/>.
+        /// </summary>
+        private static string Caption { get; set; } = String.Empty;
+
+        /// <summary>
+        /// Gets or sets the icon of the <see cref="MessageBox"/>.
+        /// </summary>
+        private static MessageBoxIcon Icon { get; set; } = MessageBoxIcon.Error;
+
+        /// <summary>
+        /// Gets or sets the buttons that will be in the <see cref="MessageBox"/>.
+        /// </summary>
+        private static MessageBoxButtons Buttons { get; set; } = MessageBoxButtons.OK;
+
+        /// <summary>
+        /// Gets or sets the result from the <see cref="MessageBox"/>.
+        /// </summary>
+        private static DialogResult Result { get; set; } = DialogResult.OK;
+
+        /// <summary>
+        /// Gets the outer <see cref="Exception"/> error message.
+        /// </summary>
+        private static string OuterExceptionMessage { get; set; } = String.Empty;
+
+        /// <summary>
+        /// Gets the inner <see cref="Exception"/> error message.
+        /// </summary>
+        private static string InnerExceptionMessage { get; set; } = String.Empty;
+
+
+
+        /// <summary>
+        /// Shows the exception message box.
+        /// </summary>
+        /// <param name="exception">The exception that this method gathers its information from.</param>
+        /// <param name="messageType">Type of the message.</param>
+        /// <exception cref="InvalidEnumArgumentException">An unaccounted <see cref="ExceptionMessageType"/> was entered.</exception>
+        public static void ShowExceptionMessageBox(this Exception exception, ExceptionMessageType messageType)
+        {
+            switch (messageType)
+            {
+                case ExceptionMessageType.Basic:
+                    exception.ShowBasicInfo();
+                    break;
+                case ExceptionMessageType.Advanced:
+                    exception.ShowAdvancedInfo();
+                    break;
+                case ExceptionMessageType.Complete:
+                    exception.ShowCompleteInfo();
+                    break;  
+                default:
+                    ShowSwitchErrorMessage();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Shows the basic information.
+        /// </summary>
+        /// <param name="exception">The exception that this method gathers its information from.</param>
+        private static void ShowBasicInfo(this Exception exception)
+        {
+            exception.GetExceptionMessages();
+        }
+
+        /// <summary>
+        /// Shows the advanced information.
+        /// </summary>
+        /// <param name="exception">The exception that this method gathers its information from.</param>
+        private static void ShowAdvancedInfo(this Exception exception)
+        {
+            exception.GetExceptionMessages();
+        }
+
+        /// <summary>
+        /// Shows the complete information.
+        /// </summary>
+        /// <param name="exception">The exception that this method gathers its information from.</param>
+        private static void ShowCompleteInfo(this Exception exception)
+        {
+            exception.GetExceptionMessages();
+        }
+
+        /// <summary>
+        /// The <see cref="MessageBox" /> that will appear should the user somehow enter in an unaccounted for <see cref="ExceptionMessageType" />.
+        /// </summary>
+        /// <exception cref="InvalidEnumArgumentException">An unaccounted <see cref="ExceptionMessageType"/> was entered.</exception>
+        private static void ShowSwitchErrorMessage()
+        {
+            Caption = $"Invalid {nameof(ExceptionMessageType)}";
+            Message = $"You entered in an unaccounted {nameof(ExceptionMessageType)}.@I suggest not doing that again.";
+            Message = Message.NewLineAfterCharacter();
+            Result  = MessageBox.Show(Message, Caption, Buttons, Icon);
+
+            if (Result == DialogResult.OK)
+            {
+                throw new InvalidEnumArgumentException($"An unaccounted {nameof(ExceptionMessageType)} was entered.");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private static void GetExceptionMessages(this Exception exception)
+        {
+            OuterExceptionMessage = exception.Message;
+
+            if (exception.InnerException != null)
+            {
+                InnerExceptionMessage = exception.InnerException.Message;
+            }
+        }
+
+        private static void GetAdvancedInfo(this Exception exception)
+        {
+
+        }
+
+
+
+        /// <summary>
+        /// Grabs a specified <see cref="Exception"/>'s crucial information, formats it, and then logs the information.
+        /// </summary>
+        /// <param name="exception">The exception being analysed.</param>
+        /// <param name="nameOfException"> 
+        /// If modified, this labels the exception in the log for easier identification in the future.
+        /// This can also be used to input a message should the user desire. If ignored, no label gets applied.
+        /// </param>
+        /// <returns>The exception's error message.</returns>
+        /// <remarks>Doesn't automatically reset the Outer and Inner properties. This will need to be taken care of.</remarks>
+        private static string GetCompleteInfo(this Exception exception, string nameOfException = null)
+        {
+            //var exceptionMessage = $"{nameOfException}@{exception.GetBasicInfo()}@{exception.GetAdvancedInfo()}";
+
+            //if (String.IsNullOrWhiteSpace(nameOfException))
+            //{
+            //    exceptionMessage = $"{exception.GetBasicInfo()}@{exception.GetAdvancedInfo()}";
+            //}
+
+
+
+            //return exceptionMessage.Replace("@", "\n");
+
+            // Setup the exception message to return.
+            var errorMessage = exception.Message;
+
+            // If no custom exception label is specified, use this default one instead.
+            if (!String.IsNullOrWhiteSpace(nameOfException))
+            {
+                //Write($"ID: {exceptionLabel}");
+            }
+
+            //Write($"Source: {exception.Source}");
+            //Write($"Message: {errorMessage}");
+            //Write($"Stack Trace: \n{exception.StackTrace}");
+
+            if (!String.IsNullOrWhiteSpace(exception.HelpLink))
+            {
+                //Write($"Help-Link: {exception.HelpLink}");
+            }
+
+            // Line break to provide better formatting.
+            //Write("");
+
+            return errorMessage;
+        }
+
+
+
+
+        /*
         /// <summary>
         /// Gets the outer <see cref="Exception"/> error message.
         /// </summary>
@@ -153,5 +345,6 @@ namespace NRTyler.CodeLibrary.Utilities
             OuterMessage = String.Empty;
             InnerMessage = String.Empty;
         }
+        */
     }
 }

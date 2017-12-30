@@ -15,7 +15,7 @@ using System;
 namespace NRTyler.CodeLibrary.Utilities.Generators
 {
 	/// <summary>
-	/// <see cref="ParameterBundle{T}"/> holds various values that generators will use to the generate their data.
+	/// <see cref="ParameterBundle{T}"/> holds various values that generators will use to generate their data.
 	/// </summary>
 	/// <typeparam name="T">The <see cref="Type"/> of values the <see cref="ParameterBundle{T}"/> will contain.</typeparam>
 	public struct ParameterBundle<T>
