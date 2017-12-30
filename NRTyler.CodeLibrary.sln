@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRTyler.CodeLibrary.Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRTyler.CodeLibrary.UnitTests", "NRTyler.CodeLibrary.UnitTests\NRTyler.CodeLibrary.UnitTests.csproj", "{1B5912F6-2527-4935-BDA9-88AD46A29B6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRTyler.CodeLibrary.WPF", "NRTyler.CodeLibrary.WPF\NRTyler.CodeLibrary.WPF.csproj", "{2E866934-DCC1-45A9-9750-074DCF82C61A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1B5912F6-2527-4935-BDA9-88AD46A29B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B5912F6-2527-4935-BDA9-88AD46A29B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B5912F6-2527-4935-BDA9-88AD46A29B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E866934-DCC1-45A9-9750-074DCF82C61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E866934-DCC1-45A9-9750-074DCF82C61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E866934-DCC1-45A9-9750-074DCF82C61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E866934-DCC1-45A9-9750-074DCF82C61A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

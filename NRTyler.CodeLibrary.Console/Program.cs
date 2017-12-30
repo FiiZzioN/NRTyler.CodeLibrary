@@ -18,13 +18,19 @@ using NRTyler.CodeLibrary.Enums;
 using NRTyler.CodeLibrary.Extensions;
 using NRTyler.CodeLibrary.Utilities;
 using NRTyler.CodeLibrary.Utilities.Generators;
+using NRTyler.CodeLibrary.WPF;
 
 namespace NRTyler.CodeLibrary.Console
 {
     public class Program
     {
+        [STAThreadAttribute]
         private static void Main()
         {
+            var test = new CustomMessageBox();
+
+            test.Show();
+
             List<string> tester = null;
 
             try
