@@ -60,9 +60,6 @@
   <ItemGroup>
     <Compile Include="Enums\ExceptionMessageType.cs" />
     <Compile Include="Interfaces\Generic\IDataContractRepository.cs" />
-    <Compile Include="UserControls\CustomMessageBox.xaml.cs">
-      <DependentUpon>CustomMessageBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Utilities\BasicMediator.cs" />
     <Compile Include="Utilities\DataContractXmlRepository.cs" />
     <Compile Include="Attributes\ExpectedExceptionMsg.cs" />
@@ -108,12 +105,6 @@
   <ItemGroup>
     <None Include="NRTyler.CodeLibrary.ruleset" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="UserControls\CustomMessageBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
