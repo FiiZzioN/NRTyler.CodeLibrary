@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ExceptionMessageType.cs" />
+    <Compile Include="Interfaces\Generic\ICrudRepository.cs" />
     <Compile Include="Interfaces\Generic\IDataContractRepository.cs" />
     <Compile Include="Utilities\BasicMediator.cs" />
     <Compile Include="Utilities\DataContractXmlRepository.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Utilities\Generators\NumberBuilder.cs" />
     <Compile Include="Utilities\Generators\NumericGenerator.cs" />
     <Compile Include="Utilities\Generators\ParameterBundle.cs" />
+    <Compile Include="Utilities\ValueComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />

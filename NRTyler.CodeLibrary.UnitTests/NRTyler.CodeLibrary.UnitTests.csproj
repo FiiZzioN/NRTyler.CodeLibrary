@@ -70,6 +70,7 @@
     <Compile Include="UtilityTests\StringLabelTests.cs" />
     <Compile Include="UtilityTests\TypeValidatorTests.cs" />
     <Compile Include="UtilityTests\ExtendedMathConstantsTests.cs" />
+    <Compile Include="UtilityTests\ValueComparerTests.cs" />
     <Compile Include="VerificationTool.cs" />
     <Compile Include="VerificationToolTests.cs" />
   </ItemGroup>

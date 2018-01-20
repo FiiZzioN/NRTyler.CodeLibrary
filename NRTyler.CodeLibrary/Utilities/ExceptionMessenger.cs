@@ -24,6 +24,8 @@ namespace NRTyler.CodeLibrary.Utilities
     [Serializable]
     public static class ExceptionMessenger
     {
+        /* Needs a lot of work
+        
         /// <summary>
         /// Gets or sets the message that will be in the <see cref="MessageBox"/>.
         /// </summary>
@@ -207,7 +209,7 @@ namespace NRTyler.CodeLibrary.Utilities
 
             return errorMessage;
         }
-
+        */
 
 
 

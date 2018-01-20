@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using NRTyler.CodeLibrary.Enums;
 using NRTyler.CodeLibrary.Extensions;
 using NRTyler.CodeLibrary.Utilities;
@@ -27,20 +28,30 @@ namespace NRTyler.CodeLibrary.Console
         [STAThreadAttribute]
         private static void Main()
         {
-            var test = new CustomMessageBox();
+            //var test = new CustomMessageBox();
 
-            test.Show();
+            //test.Show();
 
-            List<string> tester = null;
 
-            try
-            {
-                tester.Add("This is a Test");
-            }
-            catch (Exception e)
-            {
-                e.ShowExceptionMessageBox(ExceptionMessageType.Debug);
-            }
+            var message =
+                "containing the default information has been created in its place.";
+            var caption = "Error Report";
+            var buttons = MessageBoxButtons.OK;
+            var icon = MessageBoxIcon.Exclamation;
+
+            MessageBox.Show(message, caption, buttons, icon);
+
+
+            //List<string> tester = null;
+
+            //try
+            //{
+            //    tester.Add("This is a Test");
+            //}
+            //catch (Exception e)
+            //{
+            //    e.ShowExceptionMessageBox(ExceptionMessageType.Debug);
+            //}
 
 
 
