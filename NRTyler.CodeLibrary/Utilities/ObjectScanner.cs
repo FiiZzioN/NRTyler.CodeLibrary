@@ -27,7 +27,7 @@ namespace NRTyler.CodeLibrary.Utilities
         /// <param name="item">The <see cref="object" /> to scan.</param>
         /// <param name="type">The field <see cref="Type" /> we're scanning for.</param>
         /// <returns>Whether the <see cref="object" /> contains a field of the specified <see cref="Type" />.</returns>
-        public static bool ContainsFieldType<T>(this T item, Type type)
+        public static bool ContainsFieldOfType<T>(this T item, Type type)
         {
             var itemType = item.GetType();
 
@@ -49,7 +49,7 @@ namespace NRTyler.CodeLibrary.Utilities
         /// <param name="item">The <see cref="object"/> to scan.</param>
         /// <param name="type">The property <see cref="Type"/> we're scanning for.</param>
         /// <returns>Whether the <see cref="object"/> contains a property of the specified <see cref="Type"/>.</returns>
-        public static bool ContainsPropertyType<T>(this T item, Type type)
+        public static bool ContainsPropertyOfType<T>(this T item, Type type)
         {
             var itemType = item.GetType();
 
@@ -71,21 +71,21 @@ namespace NRTyler.CodeLibrary.Utilities
         /// <param name="item">The <see cref="object"/> to scan.</param>
         /// <param name="type">The property <see cref="Type"/> we're scanning for.</param>
         /// <returns>Whether the <see cref="object"/> contains a field or property of the specified <see cref="Type"/>.</returns>
-        public static bool ContainsFieldOrPropertyType<T>(this T item, Type type)
+        public static bool ContainsFieldOrPropertyOfType<T>(this T item, Type type)
         {
-            var fieldCheck    = item.ContainsFieldType(type);
-            var propertyCheck = item.ContainsPropertyType(type);
+            var fieldCheck    = item.ContainsFieldOfType(type);
+            var propertyCheck = item.ContainsPropertyOfType(type);
 
             return fieldCheck || propertyCheck;
         }
 
         /// <summary>
-        /// Finds out if a given <see cref="object"/> contains an interface of the specified <see cref="Type"/>.
+        /// Finds out if a given <see cref="object"/> implements an interface of the specified <see cref="Type"/>.
         /// </summary>
         /// <typeparam name="T">The type of the <see cref="object"/> we're scanning</typeparam>
         /// <param name="item">The <see cref="object"/> to scan.</param>
         /// <param name="type">The interface <see cref="Type"/> we're scanning for.</param>
-        /// <returns>Whether the <see cref="object"/> contains an interface of the specified <see cref="Type"/>.</returns>
+        /// <returns>Whether the <see cref="object"/> implements an interface of the specified <see cref="Type"/>.</returns>
         public static bool ImplementsInterface<T>(this T item, Type type)
         {
             var itemType = item.GetType();

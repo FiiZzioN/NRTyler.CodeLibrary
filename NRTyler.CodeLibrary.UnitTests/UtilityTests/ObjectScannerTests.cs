@@ -30,7 +30,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = true;
 
             // Act
-            var actual = testObject.ContainsFieldType(typeof(int));
+            var actual = testObject.ContainsFieldOfType(typeof(int));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -45,7 +45,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = false;
 
             // Act
-            var actual = testObject.ContainsFieldType(typeof(double));
+            var actual = testObject.ContainsFieldOfType(typeof(double));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -60,7 +60,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = false;
 
             // Act
-            var actual = testObject.ContainsFieldType(typeof(long));
+            var actual = testObject.ContainsFieldOfType(typeof(long));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -79,7 +79,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = true;
 
             // Act
-            var actual = testObject.ContainsPropertyType(typeof(string));
+            var actual = testObject.ContainsPropertyOfType(typeof(string));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -94,7 +94,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = false;
 
             // Act
-            var actual = testObject.ContainsPropertyType(typeof(short));
+            var actual = testObject.ContainsPropertyOfType(typeof(short));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -109,7 +109,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = false;
 
             // Act
-            var actual = testObject.ContainsPropertyType(typeof(float));
+            var actual = testObject.ContainsPropertyOfType(typeof(float));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -177,7 +177,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = true;
 
             // Act
-            var actual = testObject.ContainsFieldOrPropertyType(typeof(int));
+            var actual = testObject.ContainsFieldOrPropertyOfType(typeof(int));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -192,7 +192,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = false;
 
             // Act
-            var actual = testObject.ContainsFieldType(typeof(double));
+            var actual = testObject.ContainsFieldOfType(typeof(double));
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -207,7 +207,7 @@ namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
             var expected = false;
 
             // Act
-            var actual = testObject.ContainsFieldType(typeof(long));
+            var actual = testObject.ContainsFieldOfType(typeof(long));
 
             // Assert
             Assert.AreEqual(expected, actual);

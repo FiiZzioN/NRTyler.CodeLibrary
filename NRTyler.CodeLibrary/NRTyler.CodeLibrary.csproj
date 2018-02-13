@@ -61,6 +61,7 @@
     <Compile Include="Enums\ExceptionMessageType.cs" />
     <Compile Include="Interfaces\Generic\ICrudRepository.cs" />
     <Compile Include="Interfaces\Generic\IDataContractRepository.cs" />
+    <Compile Include="Interfaces\IErrorDialogService.cs" />
     <Compile Include="Utilities\BasicMediator.cs" />
     <Compile Include="Utilities\DataContractXmlRepository.cs" />
     <Compile Include="Attributes\ExpectedExceptionMsg.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Collections\DictionaryEntry.cs" />
     <Compile Include="Extensions\ConsoleEx.cs" />
     <Compile Include="Utilities\CountdownClock.cs" />
+    <Compile Include="Utilities\ErrorReporter.cs" />
     <Compile Include="Utilities\ExceptionMessenger.cs" />
     <Compile Include="Utilities\ExtendedMathConstants.cs" />
     <Compile Include="Utilities\ObjectComparer.cs" />

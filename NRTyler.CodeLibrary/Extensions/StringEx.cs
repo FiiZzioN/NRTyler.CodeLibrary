@@ -62,9 +62,20 @@ namespace NRTyler.CodeLibrary.Extensions
         /// </summary>
         /// <param name="incomingString">The incoming string.</param>
         /// <param name="character">The character that indicates when to start a new line should begin.</param>
-        public static string NewLineAfterCharacter(this string incomingString, char character = '@')
+        public static string NewLineAfter(this string incomingString, char character = '@')
         {
             return incomingString?.Replace(character, '\n');
+	    }
+
+	    /// <summary>Indicates whether a specified string is <see langword="null" />, empty, or consists only of white-space characters.</summary>
+	    /// <param name="value">The string to test.</param>
+	    /// <returns>
+	    /// <see langword="true" /> if the <paramref name="value" /> parameter is <see langword="null" /> or 
+	    /// <see cref="F:System.String.Empty" />, or if <paramref name="value" /> consists exclusively of white-space characters. 
+	    /// </returns>
+        public static bool IsNullOrWhiteSpace(this string value)
+	    {
+	        return String.IsNullOrWhiteSpace(value);
 	    }
     }
 }

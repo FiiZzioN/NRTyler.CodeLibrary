@@ -5,7 +5,7 @@
 // Created          : 10-08-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 10-09-2017
+// Last Modified On : 01-23-2018
 //
 // License          : MIT License
 // ***********************************************************************
@@ -22,10 +22,11 @@ namespace NRTyler.CodeLibrary.Extensions
     public class DirectoryEx
     {
         /// <summary>
-        /// Creates a directory in the path specified if it's found to be nonexistent.
+        /// Creates a directory to the path specified if it's found to be nonexistent.
+        /// Returns a <see cref="DirectoryInfo"/> object for the directory created.
         /// </summary>
         /// <param name="path">The path of the directory.</param>
-        /// <returns>Returns a <see cref="DirectoryInfo"/> <see cref="object"/> to the specified path.</returns>
+        /// <returns>Returns a <see cref="DirectoryInfo"/> object for the directory created.</returns>
         /// <exception cref="IOException">The specified path is actually a file, or the network name isn't known.</exception>
         /// <exception cref="UnauthorizedAccessException">The caller does not have the required permission.</exception>
         /// <exception cref="ArgumentException">Gets thrown if the path contains invalid character(s).</exception>
