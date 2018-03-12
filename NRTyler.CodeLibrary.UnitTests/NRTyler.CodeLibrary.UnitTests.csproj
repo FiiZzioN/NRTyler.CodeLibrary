@@ -52,6 +52,7 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionTests\AlertListTests.cs" />
     <Compile Include="ExtensionTests\DirectoryExTests.cs" />
     <Compile Include="ExtensionTests\IEnumerableExTests.cs" />
     <Compile Include="ExtensionTests\PathExTests.cs" />

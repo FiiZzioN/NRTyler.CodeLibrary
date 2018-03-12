@@ -154,7 +154,7 @@ namespace NRTyler.CodeLibrary.Utilities
         /// </summary>
         private void OnCountdownCompleted()
         {
-            CountdownCompleted?.Invoke(this, EventArgs.Empty);
+            CountdownCompleted?.Invoke(this, System.EventArgs.Empty);
         }
     }
 }

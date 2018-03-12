@@ -58,7 +58,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\AlertList.cs" />
     <Compile Include="Enums\ExceptionMessageType.cs" />
+    <Compile Include="EventArgs\ListChangedEventArgs.cs" />
     <Compile Include="Interfaces\Generic\ICrudRepository.cs" />
     <Compile Include="Interfaces\Generic\IDataContractRepository.cs" />
     <Compile Include="Interfaces\IErrorDialogService.cs" />
@@ -104,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
-    <Folder Include="EventArgs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NRTyler.CodeLibrary.ruleset" />

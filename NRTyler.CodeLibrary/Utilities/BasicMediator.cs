@@ -34,10 +34,10 @@ namespace NRTyler.CodeLibrary.Utilities
 
         public event EventHandler Listener;
 
-        public void OnListener(object sender, EventArgs eventArgs)
+        public void OnListener(object sender, System.EventArgs eventArgs)
         {
             var listenerDelegate = Listener;
-            listenerDelegate?.Invoke(sender, EventArgs.Empty);
+            listenerDelegate?.Invoke(sender, System.EventArgs.Empty);
         }
     }
 }
