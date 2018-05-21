@@ -18,6 +18,7 @@ namespace NRTyler.CodeLibrary.Utilities
 	/// Contains additional physical constants than the standard <see cref="Math"/> class implements. 
 	/// This is useful when dealing with physics calculations.
 	/// </summary>
+	[Obsolete("In every case going forwards, you should use the MathEx class instead.", false)]
 	public static class ExtendedMathConstants
 	{
 		/// <summary>

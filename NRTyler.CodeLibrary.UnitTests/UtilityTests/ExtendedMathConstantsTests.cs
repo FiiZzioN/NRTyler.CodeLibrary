@@ -10,13 +10,12 @@
 // License          : MIT License
 // ***********************************************************************
 
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Utilities;
 
 namespace NRTyler.CodeLibrary.UnitTests.UtilityTests
 {
-	[TestClass]
+    [TestClass]
 	public class ExtendedMathConstantsTests
 	{
 		[TestMethod]

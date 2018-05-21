@@ -17,9 +17,10 @@ using NRTyler.CodeLibrary.Collections;
 namespace NRTyler.CodeLibrary.Utilities
 {
     /// <summary>
-    /// Class SerializationAid.
+    /// <see cref="DictionarySerializationAid"/>is meant to help facilitate the serialization
+    /// and/or deserialization of a dictionary when using XML formatted files.
     /// </summary>
-    public static class SerializationAid
+    public static class DictionarySerializationAid
     {
         /// <summary>
         /// Takes an <see cref="IDictionary"/>'s key and value, and then creates a new <see cref="DictionaryEntry{TKey, TValue}"/>

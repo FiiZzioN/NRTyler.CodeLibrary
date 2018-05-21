@@ -10,11 +10,9 @@
 // License          : MIT License
 // ***********************************************************************
 
+using NRTyler.CodeLibrary.EventArgs;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using NRTyler.CodeLibrary.EventArgs;
-using NRTyler.CodeLibrary.Utilities;
 
 namespace NRTyler.CodeLibrary.Collections
 {

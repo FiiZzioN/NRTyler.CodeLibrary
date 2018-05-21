@@ -5,7 +5,7 @@
 // Created          : 09-01-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 09-07-2017
+// Last Modified On : 05-21-2018
 //
 // License          : MIT License
 // ***********************************************************************
@@ -22,6 +22,7 @@ namespace NRTyler.CodeLibrary.Utilities
     /// Holds various methods and properties that help with logging an <see cref="Exception"/>.
     /// </summary>
     [Serializable]
+    [Obsolete]
     public static class ExceptionMessenger
     {
         /* Needs a lot of work

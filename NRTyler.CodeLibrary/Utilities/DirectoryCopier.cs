@@ -5,7 +5,7 @@
 // Created          : 09-22-2017
 //
 // Last Modified By : Nicholas Tyler
-// Last Modified On : 10-09-2017
+// Last Modified On : 05-21-2018
 //
 // License          : MIT License
 // ***********************************************************************
@@ -15,7 +15,7 @@ using System.IO;
 namespace NRTyler.CodeLibrary.Utilities
 {
     /// <summary>
-    /// Contains method(s) that aid in copying files and folders within a specified location to another location. 
+    /// Contains method(s) that aid in copying the files and folders from one location to another. 
     /// </summary>
     public class DirectoryCopier
     {
