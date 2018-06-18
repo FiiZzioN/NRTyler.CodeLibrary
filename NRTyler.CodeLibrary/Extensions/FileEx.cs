@@ -19,7 +19,7 @@ namespace NRTyler.CodeLibrary.Extensions
     /// <summary>
     /// Wrapper for the <see langword="static"/> <see cref="File"/> class. 
     /// </summary>
-    public static class FileEx
+    public class FileEx
     {
         /// <summary>
         /// Checks to see if the specified file is the same type as the specified 

@@ -9,13 +9,10 @@
 // 
 // License          : MIT License
 // ***********************************************************************
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRTyler.CodeLibrary.Extensions;
+using System;
 
 namespace NRTyler.CodeLibrary.UnitTests.ExtensionTests
 {

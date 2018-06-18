@@ -63,10 +63,12 @@
     <Compile Include="Enums\ExceptionMessageType.cs" />
     <Compile Include="EventArgs\ListChangedEventArgs.cs" />
     <Compile Include="Extensions\FileEx.cs" />
+    <Compile Include="Extensions\FileSystemInfoEx.cs" />
     <Compile Include="Extensions\MathEx.cs" />
     <Compile Include="Interfaces\Generic\ICrudRepository.cs" />
     <Compile Include="Interfaces\Generic\IDataContractRepository.cs" />
     <Compile Include="Interfaces\IErrorDialogService.cs" />
+    <Compile Include="Utilities\AppTerminator.cs" />
     <Compile Include="Utilities\BasicMediator.cs" />
     <Compile Include="Utilities\DataContractXmlRepository.cs" />
     <Compile Include="Attributes\ExpectedExceptionMsg.cs" />
